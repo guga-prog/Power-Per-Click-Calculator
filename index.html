@@ -1,0 +1,3166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Power Per Click Calculator</title>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG5WVXQ9J6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MG5WVXQ9J6');
+</script>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzE0MTQyOCIvPgogIDxyZWN0IHg9IjUiIHk9IjUiIHdpZHRoPSIyMiIgaGVpZ2h0PSIyMiIgcng9IjQiIGZpbGw9IiMxZTFlM2EiIHN0cm9rZT0iIzdjNWNiZiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8cmVjdCB4PSI4IiB5PSI4IiB3aWR0aD0iMTYiIGhlaWdodD0iNiIgcng9IjIiIGZpbGw9IiM3YzVjYmYiLz4KICA8cmVjdCB4PSI4IiB5PSIxNyIgd2lkdGg9IjQiIGhlaWdodD0iNCIgcng9IjEiIGZpbGw9IiMwMGQ0YWEiLz4KICA8cmVjdCB4PSIxNCIgeT0iMTciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiIHJ4PSIxIiBmaWxsPSIjMDBkNGFhIi8+CiAgPHJlY3QgeD0iMjAiIHk9IjE3IiB3aWR0aD0iNCIgaGVpZ2h0PSI0IiByeD0iMSIgZmlsbD0iIzAwZDRhYSIvPgogIDxyZWN0IHg9IjgiIHk9IjIzIiB3aWR0aD0iNCIgaGVpZ2h0PSIyIiByeD0iMSIgZmlsbD0iI2FhYSIvPgogIDxyZWN0IHg9IjE0IiB5PSIyMyIgd2lkdGg9IjQiIGhlaWdodD0iMiIgcng9IjEiIGZpbGw9IiNhYWEiLz4KICA8cmVjdCB4PSIyMCIgeT0iMjMiIHdpZHRoPSI0IiBoZWlnaHQ9IjIiIHJ4PSIxIiBmaWxsPSIjZjVjNTQyIi8+Cjwvc3ZnPg==">
+<style>
+  /* ── Inline flag icons (no CDN) ── */
+  .fi { display:inline-block; width:1.333em; height:1em; background-size:contain; background-position:50%; background-repeat:no-repeat; vertical-align:middle; border-radius:2px; margin-right:3px; flex-shrink:0; }
+  .fi-us { background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 13'><rect width='20' height='13' fill='%23B22234'/><rect y='1' width='20' height='1' fill='white'/><rect y='3' width='20' height='1' fill='white'/><rect y='5' width='20' height='1' fill='white'/><rect y='7' width='20' height='1' fill='white'/><rect y='9' width='20' height='1' fill='white'/><rect y='11' width='20' height='1' fill='white'/><rect width='8' height='7' fill='%233C3B6E'/></svg>"); }
+  .fi-br { background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 14'><rect width='20' height='14' fill='%23009c3b'/><polygon points='10,1 19,7 10,13 1,7' fill='%23FEDF00'/><circle cx='10' cy='7' r='3.2' fill='%23002776'/></svg>"); }
+  .fi-es { background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 13'><rect width='20' height='13' fill='%23c60b1e'/><rect y='3.25' width='20' height='6.5' fill='%23ffc400'/></svg>"); }
+  .fi-ru { background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 13'><rect width='20' height='13' fill='white'/><rect y='4.33' width='20' height='4.34' fill='%230039A6'/><rect y='8.67' width='20' height='4.33' fill='%23D52B1E'/></svg>"); }
+  .fi-fr { background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 13'><rect width='20' height='13' fill='%23ED2939'/><rect width='13.34' height='13' fill='white'/><rect width='6.67' height='13' fill='%23002395'/></svg>"); }
+  .fi-th { background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 13'><rect width='20' height='13' fill='%23A51931'/><rect y='2.17' width='20' height='8.66' fill='white'/><rect y='4.33' width='20' height='4.34' fill='%232D2A4A'/></svg>"); }
+  .fi-ph { background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 13'><rect width='20' height='13' fill='%23CE1126'/><rect width='20' height='6.5' fill='%230038A8'/><polygon points='0,0 9,6.5 0,13' fill='white'/><circle cx='3.8' cy='6.5' r='1.2' fill='%23FCD116'/></svg>"); }
+</style>
+<style>
+  :root {
+    --bg: #0d0d1a;
+    --surface: #141428;
+    --surface2: #1c1c38;
+    --border: #2a2a55;
+    --gold: #f5c542;
+    --gold2: #e0a800;
+    --purple: #a259ff;
+    --purple2: #7c3aed;
+    --teal: #00d4aa;
+    --red: #ff4d6d;
+    --text: #e8e8ff;
+    --muted: #8888aa;
+    --glow: 0 0 12px rgba(162,89,255,0.4);
+    --glow-gold: 0 0 12px rgba(245,197,66,0.4);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding-bottom: 40px;
+  }
+  header {
+    background: linear-gradient(135deg, #0d0d2b 0%, #1a0a3b 100%);
+    border-bottom: 2px solid var(--purple2);
+    padding: 20px 24px 14px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 24px rgba(124,58,237,0.3);
+  }
+  header h1 {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: 800;
+    background: linear-gradient(90deg, var(--gold), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 1px;
+  }
+  header p { color: var(--muted); font-size: 0.85rem; margin-top: 4px; }
+
+  /* ── Language Buttons ── */
+  .lang-bar {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .lang-btn {
+    padding: 3px 11px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .lang-btn.active {
+    background: var(--gold2);
+    color: #000;
+    border-color: var(--gold);
+    box-shadow: 0 0 8px rgba(245,197,66,0.4);
+  }
+  .lang-btn .fi {
+    vertical-align: middle;
+    border-radius: 2px;
+    margin-right: 2px;
+  }
+  .lang-btn:not(.active):hover { color: var(--text); border-color: var(--muted); }
+
+  /* ── Tooltip ── */
+  #tip-popup {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    background: var(--surface);
+    border: 1px solid var(--purple2);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.78rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5), var(--glow);
+    pointer-events: none;
+    min-width: 170px;
+    max-width: 260px;
+  }
+  #tip-popup .tip-title {
+    color: var(--purple);
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 7px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border);
+  }
+  #tip-popup .tip-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    color: var(--muted);
+    margin-bottom: 3px;
+    font-size: 0.76rem;
+  }
+  #tip-popup .tip-row span:last-child { color: var(--teal); font-weight: 700; }
+  #tip-popup .tip-total {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 6px;
+    padding-top: 5px;
+    border-top: 1px solid var(--border);
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--text);
+  }
+  #tip-popup .tip-total span:last-child { color: var(--gold); }
+
+  /* ── Reset button ── */
+  .reset-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--muted);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .reset-btn:hover { border-color: var(--red); color: var(--red); box-shadow: 0 0 10px rgba(255,77,109,0.2); }
+
+  .max-btn {
+    background: linear-gradient(135deg, var(--gold2), #b8860b);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 800;
+    padding: 12px 22px;
+    cursor: pointer;
+    transition: all 0.2s;
+    align-self: center;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px rgba(245,197,66,0.3);
+  }
+  .max-btn:hover { box-shadow: 0 0 18px rgba(245,197,66,0.6); transform: scale(1.03); }
+
+  .share-btn {
+    background: transparent;
+    border: 1px solid var(--teal);
+    border-radius: 10px;
+    color: var(--teal);
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 12px 22px;
+    cursor: pointer;
+    transition: all 0.2s;
+    align-self: center;
+    letter-spacing: 0.5px;
+  }
+  .share-btn:hover { background: rgba(0,212,170,0.1); box-shadow: 0 0 12px rgba(0,212,170,0.3); }
+  .share-btn.copied { border-color: var(--gold); color: var(--gold); }
+
+  /* Toast notification */
+  #share-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--surface);
+    border: 1px solid var(--teal);
+    border-radius: 12px;
+    padding: 12px 22px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--teal);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 12px rgba(0,212,170,0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 9999;
+    white-space: nowrap;
+  }
+  #share-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .result-bar {
+    background: linear-gradient(135deg, #1a0a3b, #0d1a2b);
+    border: 2px solid var(--gold2);
+    border-radius: 16px;
+    margin: 20px auto;
+    max-width: 900px;
+    padding: 20px 28px;
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    box-shadow: var(--glow-gold);
+  }
+  .result-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 220px;
+    padding-right: 28px;
+  }
+  .result-divider {
+    width: 1px;
+    background: rgba(255,255,255,0.1);
+    align-self: stretch;
+    flex-shrink: 0;
+  }
+  .result-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 28px;
+  }
+  .result-actions {
+    display: flex;
+    gap: 10px;
+  }
+  .result-actions button {
+    flex: 1;
+  }
+  .result-main { flex: 1; min-width: 200px; }
+  .result-label { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+  .result-value {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 900;
+    color: var(--gold);
+    text-shadow: 0 0 20px rgba(245,197,66,0.6);
+    line-height: 1.1;
+    word-break: break-all;
+  }
+  .result-raw { color: var(--muted); font-size: 0.78rem; margin-top: 2px; }
+  .result-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .limit-bar {
+    background: var(--surface2);
+    border-radius: 8px;
+    padding: 8px 14px 10px;
+    font-size: 0.8rem;
+  }
+  .limit-bar .lbl { color: var(--muted); }
+  .limit-bar .val { color: var(--teal); font-weight: 700; }
+  .limit-bar .pct { color: var(--purple); font-size: 0.72rem; min-height: 14px; }
+
+  /* ── Progress Bar ── */
+  .pct-bar-wrap {
+    margin-top: 5px;
+    height: 5px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .pct-bar-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 3px;
+    background: var(--teal);
+    transition: width 0.45s cubic-bezier(.4,0,.2,1), background 0.45s ease;
+    position: relative;
+  }
+  .pct-bar-fill.over { background: var(--red); box-shadow: 0 0 6px rgba(255,77,109,0.6); }
+
+  .main { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+  .sections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 14px;
+    margin-top: 10px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .card-header {
+    background: var(--surface2);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card-icon { font-size: 1.3rem; }
+  .card-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--purple);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex: 1;
+  }
+  .card-mult {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--teal);
+    background: rgba(0,212,170,0.1);
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 1px solid rgba(0,212,170,0.3);
+  }
+  .card-body { padding: 14px 16px; }
+
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .row:last-child { margin-bottom: 0; }
+  .row-label {
+    color: var(--muted);
+    font-size: 0.82rem;
+    min-width: 100px;
+    flex-shrink: 0;
+  }
+  .row-mult-badge {
+    margin-left: auto;
+    font-size: 0.78rem;
+    color: var(--gold);
+    font-weight: 700;
+    min-width: 50px;
+    text-align: right;
+  }
+
+  select, input[type="number"] {
+    flex: 1;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    padding: 6px 10px;
+    font-size: 0.84rem;
+    outline: none;
+    min-width: 0;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  select:focus, input[type="number"]:focus { border-color: var(--purple2); }
+  select option { background: #1a1a35; }
+
+  input[type="range"] {
+    flex: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--surface2);
+    outline: none;
+    cursor: pointer;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--purple);
+    box-shadow: var(--glow);
+    cursor: pointer;
+  }
+  .range-val {
+    min-width: 36px;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .toggle-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .toggle-row:last-child { margin-bottom: 0; }
+  .toggle-label {
+    flex: 1;
+    color: var(--text);
+    font-size: 0.85rem;
+  }
+  .toggle-sub { color: var(--muted); font-size: 0.75rem; }
+  .toggle-mult { color: var(--gold); font-size: 0.78rem; font-weight: 700; }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+  .switch input { opacity: 0; width: 0; height: 0; }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    transition: 0.3s;
+  }
+  .slider:before {
+    content: "";
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background: var(--muted);
+    border-radius: 50%;
+    transition: 0.3s;
+  }
+  .switch input:checked + .slider { background: var(--purple2); border-color: var(--purple); }
+  .switch input:checked + .slider:before { transform: translateX(18px); background: white; }
+
+  .acc-slot {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+  }
+  .acc-slot:last-child { margin-bottom: 0; }
+  .acc-slot-name {
+    font-size: 0.75rem;
+    color: var(--purple);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .acc-row { display: flex; gap: 8px; align-items: center; }
+
+  .unit-row {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+  }
+  .unit-row:last-child { margin-bottom: 0; }
+  .unit-num {
+    color: var(--muted);
+    min-width: 20px;
+    font-size: 0.75rem;
+  }
+  .unit-row select { flex: 1; }
+  .unit-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--gold);
+    min-width: 40px;
+    text-align: right;
+  }
+
+  .ach-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .ach-row:last-child { margin-bottom: 0; }
+  .ach-label { color: var(--muted); font-size: 0.82rem; min-width: 110px; flex-shrink: 0; }
+
+  .wide-card { grid-column: 1 / -1; }
+  @media (max-width: 680px) { .wide-card { grid-column: 1; } }
+
+  .mult-chip {
+    display: inline-block;
+    background: rgba(162,89,255,0.15);
+    border: 1px solid rgba(162,89,255,0.3);
+    border-radius: 20px;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    color: var(--purple);
+    font-weight: 700;
+    margin-left: 4px;
+  }
+  .mult-chip.gold {
+    background: rgba(245,197,66,0.1);
+    border-color: rgba(245,197,66,0.3);
+    color: var(--gold);
+  }
+  .mult-chip.teal {
+    background: rgba(0,212,170,0.1);
+    border-color: rgba(0,212,170,0.3);
+    color: var(--teal);
+  }
+
+  .section-divider {
+    color: var(--muted);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 10px 0 6px;
+  }
+
+  .big-number-display {
+    font-family: 'Courier New', monospace;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.78rem;
+    margin-top: 30px;
+    padding: 0 16px;
+  }
+
+  .mode-toggle {
+    display: inline-flex;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 4px;
+    margin-top: 12px;
+    gap: 2px;
+  }
+  .mode-btn {
+    padding: 6px 28px;
+    border-radius: 24px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 1px;
+  }
+  .mode-btn.active {
+    background: var(--purple2);
+    color: white;
+    box-shadow: var(--glow);
+  }
+  .mode-btn:not(.active):hover { color: var(--text); }
+
+  /* ── Last Updated ── */
+  .last-updated {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(0,212,170,0.08);
+    border: 1px solid rgba(0,212,170,0.2);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: 0.72rem;
+    color: var(--teal);
+    margin-top: 8px;
+  }
+  .last-updated span { color: var(--muted); }
+
+  /* ── Breakdown Panel ── */
+  .breakdown-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin: 0 auto 14px;
+    max-width: 900px;
+    overflow: hidden;
+  }
+  .breakdown-header {
+    background: var(--surface2);
+    padding: 11px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .breakdown-header.open { border-bottom-color: var(--border); }
+  .breakdown-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--purple);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .breakdown-chevron {
+    color: var(--muted);
+    font-size: 0.8rem;
+    transition: transform 0.25s;
+  }
+  .breakdown-chevron.open { transform: rotate(180deg); }
+  .breakdown-body {
+    display: none;
+    padding: 14px 18px;
+    gap: 8px;
+  }
+  .breakdown-body.open { display: flex; flex-direction: column; }
+  .bd-col-header {
+    display: grid;
+    grid-template-columns: 128px 1fr 72px 90px;
+    gap: 10px;
+    padding: 4px 10px 6px;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2px;
+  }
+  .bd-col-section { text-align: center; }
+  .bd-col-bar     { text-align: center; }
+  .bd-col-contrib { text-align: center; }
+  .bd-col-mult    { text-align: right; }
+  .bd-row {
+    display: grid;
+    grid-template-columns: 128px 1fr 72px 90px;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+  }
+  .bd-row:last-child { margin-bottom: 0; }
+  .bd-name {
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.8rem;
+  }
+  /* Bar column: stacks two bars + missing text */
+  .bd-bar-col { display: flex; flex-direction: column; gap: 3px; }
+  .bd-bar-bg {
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+    height: 7px;
+    overflow: hidden;
+    position: relative;
+  }
+  .bd-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.4s cubic-bezier(.4,0,.2,1);
+    min-width: 2px;
+  }
+  .bd-bar-fill.curr { background: var(--purple2); }
+  .bd-bar-fill.mbar { background: rgba(255,255,255,0.12); }
+  .bd-missing {
+    font-size: 0.68rem;
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .bd-missing.at-max { color: var(--teal); }
+  .bd-pct {
+    color: var(--purple);
+    font-weight: 700;
+    text-align: center;
+    font-size: 0.76rem;
+    white-space: nowrap;
+  }
+  .bd-mult-col { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; }
+  .bd-mult {
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.76rem;
+    white-space: nowrap;
+  }
+  .bd-max-val {
+    color: var(--muted);
+    font-size: 0.66rem;
+    white-space: nowrap;
+  }
+  /* Highlight states */
+  .bd-row.at-max .bd-bar-fill.curr { background: var(--teal); }
+  .bd-row.at-max .bd-pct           { color: var(--teal); }
+  .bd-row.at-max .bd-name          { color: var(--teal); }
+  .bd-row.top    .bd-bar-fill.curr { background: var(--gold2); }
+  .bd-row.top    .bd-pct           { color: var(--gold); }
+  .bd-row.top    .bd-name          { color: var(--text); font-weight: 600; }
+  .bd-divider { height: 1px; background: var(--border); margin: 6px 0; }
+  /* Mode legend */
+  .bd-legend {
+    display: flex;
+    gap: 14px;
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .bd-legend span { display: flex; align-items: center; gap: 5px; }
+  .bd-legend .dot {
+    display: inline-block;
+    width: 10px; height: 7px;
+    border-radius: 3px;
+  }
+
+  /* ── Changelog ── */
+  .changelog-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin: 0 auto 14px;
+    max-width: 900px;
+    overflow: hidden;
+  }
+  .changelog-header {
+    background: var(--surface2);
+    padding: 11px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .changelog-header.open { border-bottom-color: var(--border); }
+  .changelog-header-left { display: flex; align-items: center; gap: 10px; }
+  .changelog-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--purple);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .changelog-badge {
+    background: var(--red);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+  .changelog-date { font-size: 0.72rem; color: var(--muted); }
+  .changelog-chevron {
+    color: var(--muted);
+    font-size: 0.8rem;
+    transition: transform 0.25s;
+  }
+  .changelog-chevron.open { transform: rotate(180deg); }
+  .changelog-body {
+    display: none;
+    padding: 16px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .changelog-body.open { display: flex; }
+  .changelog-version { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+  .changelog-version-tag {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--gold);
+    background: rgba(245,197,66,0.1);
+    border: 1px solid rgba(245,197,66,0.25);
+    border-radius: 6px;
+    padding: 2px 9px;
+  }
+  .changelog-version-date { font-size: 0.75rem; color: var(--muted); }
+  .changelog-items { display: flex; flex-direction: column; gap: 6px; padding-left: 4px; }
+  .changelog-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.45;
+  }
+  .changelog-item-icon { flex-shrink: 0; font-size: 0.95rem; margin-top: 1px; }
+  .changelog-item-tag {
+    flex-shrink: 0;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-top: 2px;
+  }
+  .tag-new    { background: rgba(0,212,170,0.15); color: var(--teal); border: 1px solid rgba(0,212,170,0.3); }
+  .tag-update { background: rgba(162,89,255,0.15); color: var(--purple); border: 1px solid rgba(162,89,255,0.3); }
+  .changelog-item-text { flex: 1; }
+  .changelog-item-text strong { color: var(--gold); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>⚔️ Power Per Click Calculator</h1>
+  <p data-i18n="subtitle">Build your setup and see your total Power Per Click multiplier</p>
+  <div class="last-updated">🕒 <span data-i18n="lastUpdated">Last updated:</span>04/05/2026</div>
+  <div class="mode-toggle" id="modeToggle">
+    <button class="mode-btn active" id="btnP2W" onclick="setMode(true)">P2W</button>
+    <button class="mode-btn" id="btnF2P" onclick="setMode(false)">F2P</button>
+  </div>
+  <div class="lang-bar">
+    <button class="lang-btn active" onclick="setLang('en')"><span class="fi fi-us"></span> English</button>
+    <button class="lang-btn" onclick="setLang('pt')"><span class="fi fi-br"></span> Português</button>
+    <button class="lang-btn" onclick="setLang('es')"><span class="fi fi-es"></span> Español</button>
+    <button class="lang-btn" onclick="setLang('ru')"><span class="fi fi-ru"></span> Русский</button>
+    <button class="lang-btn" onclick="setLang('fr')"><span class="fi fi-fr"></span> Français</button>
+    <button class="lang-btn" onclick="setLang('th')"><span class="fi fi-th"></span> ภาษาไทย</button>
+    <button class="lang-btn" onclick="setLang('fil')"><span class="fi fi-ph"></span> Filipino</button>
+  </div>
+</header>
+
+<div id="tip-popup"></div>
+<div id="share-toast">🔗 Link copied to clipboard!</div>
+
+<div class="main">
+  <div class="result-bar">
+    <!-- Left panel: PPC value -->
+    <div class="result-left">
+      <div class="result-label" data-i18n="yourPPC">Your Power Per Click</div>
+      <div class="result-value big-number-display" id="resultDisplay">2.50</div>
+      <div class="result-raw" id="resultRaw"></div>
+    </div>
+
+    <!-- Divider -->
+    <div class="result-divider"></div>
+
+    <!-- Right panel: limits + buttons -->
+    <div class="result-right">
+      <div class="result-comparison">
+        <div class="limit-bar">
+          <div class="lbl" data-i18n="f2pPlaus">F2P Plausible</div>
+          <div class="val" id="f2pLimitVal">153,57 BA</div>
+          <div class="pct" id="f2pPct"></div>
+          <div class="pct-bar-wrap"><div class="pct-bar-fill" id="f2pBar"></div></div>
+        </div>
+        <div class="limit-bar">
+          <div class="lbl" data-i18n="f2pMax">F2P Max</div>
+          <div class="val" id="f2pMaxLimitVal">268,76 BA</div>
+          <div class="pct" id="f2pMaxPct"></div>
+          <div class="pct-bar-wrap"><div class="pct-bar-fill" id="f2pMaxBar"></div></div>
+        </div>
+        <div class="limit-bar">
+          <div class="lbl" data-i18n="p2wPlaus">P2W Plausible</div>
+          <div class="val" id="p2wLimitVal">6,44 BB</div>
+          <div class="pct" id="p2wPct"></div>
+          <div class="pct-bar-wrap"><div class="pct-bar-fill" id="p2wBar"></div></div>
+        </div>
+        <div class="limit-bar">
+          <div class="lbl" data-i18n="p2wMax">P2W Max</div>
+          <div class="val" id="p2wMaxLimitVal">11,34 BB</div>
+          <div class="pct" id="p2wMaxPct"></div>
+          <div class="pct-bar-wrap"><div class="pct-bar-fill" id="p2wMaxBar"></div></div>
+        </div>
+      </div>
+      <div class="result-actions">
+        <button class="reset-btn" onclick="resetAll()" data-i18n="btnReset">↺ Reset</button>
+        <button class="max-btn" onclick="setMax()" data-i18n="btnMax">⚡ Max</button>
+        <button class="share-btn" id="shareBtn" onclick="shareBuild()" data-i18n="btnShare">🔗 Share Build</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BREAKDOWN -->
+  <div class="breakdown-card" id="breakdownCard">
+    <div class="breakdown-header" id="breakdownHeader" onclick="toggleBreakdown()">
+      <span class="breakdown-title" data-i18n="powerBreakdown">📊 Power Breakdown</span>
+      <span class="breakdown-chevron" id="breakdownChevron">▼</span>
+    </div>
+    <div class="breakdown-body" id="breakdownBody"></div>
+  </div>
+
+  <!-- CHANGELOG -->
+  <div class="changelog-card">
+    <div class="changelog-header open" id="changelogHeader" onclick="toggleChangelog()">
+      <div class="changelog-header-left">
+        <span class="changelog-title">📋 Changelog</span>
+        <span class="changelog-badge">NEW</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="changelog-date">Last update: 04/05/2026</span>
+        <span class="changelog-chevron open" id="changelogChevron">▼</span>
+      </div>
+    </div>
+    <div class="changelog-body open" id="changelogBody"></div>
+  </div>
+
+  <div class="sections-grid">
+
+    <!-- AWAKENING & LEVEL -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-icon">⚡</span>
+        <span class="card-title" data-i18n="awakeLevel">Awakening &amp; Level</span>
+        <span class="card-mult" id="multAwakeLevel" data-tip="awakeLevel">1x</span>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <span class="row-label" data-i18n="awakening">Awakening</span>
+          <input type="range" id="awakening" min="1" max="36" value="1" oninput="sync('awakening','awakeVal');calc()">
+          <span class="range-val" id="awakeVal">1</span>
+          <span class="row-mult-badge" id="awakeMult">1x</span>
+        </div>
+        <div class="row">
+          <span class="row-label" data-i18n="level">Level</span>
+          <input type="range" id="level" min="1" max="50" value="1" oninput="sync('level','levelVal');calc()">
+          <span class="range-val" id="levelVal">1</span>
+          <span class="row-mult-badge" id="levelMult">1x</span>
+        </div>
+        <div class="row">
+          <span class="row-label" data-i18n="worldsIndex">Worlds (Index)</span>
+          <input type="range" id="index" min="0" max="9" value="0" oninput="sync('index','indexVal');calc()">
+          <span class="range-val" id="indexVal">0</span>
+          <span class="row-mult-badge" id="indexMult">1x</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- GAMEPASSES -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-icon">💳</span>
+        <span class="card-title" data-i18n="gamepasses">Gamepasses</span>
+        <span class="card-mult" id="multGamepass" data-tip="gamepasses">1x</span>
+      </div>
+      <div class="card-body">
+        <div class="toggle-row" id="row2xPower">
+          <span class="toggle-label"><span data-i18n="gp2x">2x Power</span> <span class="toggle-mult">× 2.0</span></span>
+          <label class="switch"><input type="checkbox" id="gp2x" onchange="calc()"><span class="slider"></span></label>
+        </div>
+        <div class="toggle-row" id="rowVip">
+          <span class="toggle-label">VIP <span class="toggle-mult">× 1.25</span></span>
+          <label class="switch"><input type="checkbox" id="gpVip" onchange="calc()"><span class="slider"></span></label>
+        </div>
+        <div class="section-divider" data-i18n="potions">Potions</div>
+        <div class="toggle-row">
+          <span class="toggle-label"><span data-i18n="potion3">Power Potion III</span> <span class="toggle-mult">× 2.5</span></span>
+          <label class="switch"><input type="checkbox" id="potIII" onchange="calc()"><span class="slider"></span></label>
+        </div>
+        <div class="toggle-row">
+          <span class="toggle-label"><span data-i18n="potion2">Power Potion II</span> <span class="toggle-mult">× 2.0</span></span>
+          <label class="switch"><input type="checkbox" id="potBig" onchange="calc()"><span class="slider"></span></label>
+        </div>
+        <div class="toggle-row">
+          <span class="toggle-label"><span data-i18n="potion1">Power Potion I</span> <span class="toggle-mult">× 1.5</span></span>
+          <label class="switch"><input type="checkbox" id="potSmall" onchange="calc()"><span class="slider"></span></label>
+        </div>
+        <div class="section-divider">Follow Devs</div>
+        <div class="toggle-row">
+          <span class="toggle-label">Follow all Devs <span class="toggle-mult">× 1.520875</span></span>
+          <label class="switch"><input type="checkbox" id="followDevs" onchange="calc()"><span class="slider"></span></label>
+        </div>
+        <div class="section-divider" data-i18n="sideQuestsLabel">Side Quests</div>
+        <div class="row">
+          <span class="row-label" data-i18n="questsDone">Quests done</span>
+          <input type="range" id="sideQuests" min="0" max="5" value="0" oninput="sync('sideQuests','sqVal');calc()">
+          <span class="range-val" id="sqVal">0</span>
+          <span class="row-mult-badge" id="sqMult">1x</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCESSORIES -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-icon">🎒</span>
+        <span class="card-title" data-i18n="accessories">Accessories (5 slots)</span>
+        <span class="card-mult" id="multAcc" data-tip="accessories">1x</span>
+      </div>
+      <div class="card-body">
+        <div id="accSlots"></div>
+      </div>
+    </div>
+
+    <!-- GACHA -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-icon">🎲</span>
+        <span class="card-title" data-i18n="gacha">Gacha</span>
+        <span class="card-mult" id="multGacha" data-tip="gacha">1x</span>
+      </div>
+      <div class="card-body" id="gachaRows"></div>
+    </div>
+
+    <!-- PROGRESSIONS -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-icon">📈</span>
+        <span class="card-title" data-i18n="progressions">Progressions</span>
+        <span class="card-mult" id="multProg" data-tip="progressions">1x</span>
+      </div>
+      <div class="card-body" id="progRows"></div>
+    </div>
+
+    <!-- SWORDS -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-icon">🗡️</span>
+        <span class="card-title" data-i18n="swords">Swords</span>
+        <span class="card-mult" id="multSwords" data-tip="swords">1x</span>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <span class="row-label" data-i18n="sword1">Sword 1</span>
+          <select id="sword1" onchange="calc()"></select>
+          <span class="row-mult-badge" id="s1Mult">1x</span>
+        </div>
+        <div class="row">
+          <span class="row-label" data-i18n="enchant1">Enchant 1</span>
+          <select id="enchant1" onchange="calc()"></select>
+          <span class="row-mult-badge" id="e1Mult">1x</span>
+        </div>
+        <div class="row" id="sword2Row">
+          <span class="row-label" data-i18n="sword2">Sword 2</span>
+          <select id="sword2" onchange="calc()"></select>
+          <span class="row-mult-badge" id="s2Mult">1x</span>
+        </div>
+        <div class="row" id="enchant2Row">
+          <span class="row-label" data-i18n="enchant2">Enchant 2</span>
+          <select id="enchant2" onchange="calc()"></select>
+          <span class="row-mult-badge" id="e2Mult">1x</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-icon">👤</span>
+        <span class="card-title" data-i18n="stats">Stats</span>
+        <span class="card-mult" id="multStats" data-tip="stats">1x</span>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <span class="row-label" data-i18n="fighter">Fighter</span>
+          <select id="fighter" onchange="calc()"></select>
+          <span class="row-mult-badge" id="fighterMult">1x</span>
+        </div>
+        <div class="row" id="fighter2Row">
+          <span class="row-label" data-i18n="fighter2">Fighter 2</span>
+          <select id="fighter2" onchange="calc()"></select>
+          <span class="row-mult-badge" id="fighter2Mult">1x</span>
+        </div>
+        <div class="row">
+          <span class="row-label" data-i18n="titleLabel">Title</span>
+          <select id="title" onchange="calc()"></select>
+          <span class="row-mult-badge" id="titleMult">1x</span>
+        </div>
+        <div class="row">
+          <span class="row-label" data-i18n="avatar">Avatar</span>
+          <select id="avatar" onchange="updateAvatarLevels(true)"></select>
+        </div>
+        <div class="row">
+          <span class="row-label" data-i18n="avatarLevel">Avatar Level</span>
+          <select id="avatarLevel" onchange="calc()"></select>
+          <span class="row-mult-badge" id="avatarMult">1x</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILL TREE W2 -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-icon">🌳</span>
+        <span class="card-title" data-i18n="skillTree">Skill Tree (World 2)</span>
+        <span class="card-mult" id="multSkill" data-tip="skill">1x</span>
+      </div>
+      <div class="card-body">
+        <div class="toggle-row">
+          <span class="toggle-label"><span data-i18n="skillStart">Start</span> <span class="toggle-mult">× 1.05</span></span>
+          <label class="switch"><input type="checkbox" id="skillStart" onchange="calc()"><span class="slider"></span></label>
+        </div>
+        <div class="row">
+          <span class="row-label" data-i18n="powerSkill">Power (×1.15 each)</span>
+          <input type="range" id="skillPower" min="0" max="5" value="0" oninput="sync('skillPower','spVal');calc()">
+          <span class="range-val" id="spVal">0</span>
+          <span class="row-mult-badge" id="spMult">1x</span>
+        </div>
+        <div class="row">
+          <span class="row-label" data-i18n="insanePower">Insane Power (×1.2)</span>
+          <input type="range" id="skillInsane" min="0" max="3" value="0" oninput="sync('skillInsane','siVal');calc()">
+          <span class="range-val" id="siVal">0</span>
+          <span class="row-mult-badge" id="siMult">1x</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILL TREE W9 -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-icon">🌲</span>
+        <span class="card-title" data-i18n="skillTreeW9">Skill Tree (World 9)</span>
+        <span class="card-mult" id="multSkillW9" data-tip="skillW9">1x</span>
+      </div>
+      <div class="card-body">
+        <div class="toggle-row">
+          <span class="toggle-label"><span data-i18n="skillStartW9">Start</span> <span class="toggle-mult">× 1.1</span></span>
+          <label class="switch"><input type="checkbox" id="skillStartW9" onchange="calc()"><span class="slider"></span></label>
+        </div>
+        <div class="row">
+          <span class="row-label" data-i18n="powerSkillW9">Power</span>
+          <input type="range" id="skillPowerW9" min="0" max="10" value="0" oninput="sync('skillPowerW9','spW9Val');calc()">
+          <span class="range-val" id="spW9Val">0</span>
+          <span class="row-mult-badge" id="spW9Mult">1x</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRIAL & TEMPEST UPGRADES -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-icon">🏆</span>
+        <span class="card-title" data-i18n="trialTempest">Trial &amp; Tempest Upgrades</span>
+        <span class="card-mult" id="multUpgrades" data-tip="upgrades">1x</span>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <span class="row-label" data-i18n="trialUpgLabel">Trial Upgrades</span>
+          <input type="range" id="trialUpg" min="0" max="20" value="0" oninput="sync('trialUpg','tuVal');calc()">
+          <span class="range-val" id="tuVal">0</span>
+          <span class="row-mult-badge" id="tuMult">1x</span>
+        </div>
+        <div class="row">
+          <span class="row-label" data-i18n="tempestUpgLabel">Tempest Upgrades</span>
+          <input type="range" id="tempestUpg" min="0" max="20" value="0" oninput="sync('tempestUpg','teuVal');calc()">
+          <span class="range-val" id="teuVal">0</span>
+          <span class="row-mult-badge" id="teuMult">1x</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACHIEVEMENTS -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-icon">🏅</span>
+        <span class="card-title" data-i18n="achievements">Achievements</span>
+        <span class="card-mult" id="multAch" data-tip="achievements">1x</span>
+      </div>
+      <div class="card-body" id="achRows"></div>
+    </div>
+
+    <!-- UNITS -->
+    <div class="card wide-card">
+      <div class="card-header">
+        <span class="card-icon">🤖</span>
+        <span class="card-title" id="unitsCardTitle">Units (up to 8)</span>
+        <span class="card-mult" id="multUnits" data-tip="units">1x</span>
+      </div>
+      <div class="card-body">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;" id="unitSlots"></div>
+
+      </div>
+    </div>
+
+  </div><!-- end grid -->
+</div><!-- end main -->
+
+<footer>
+  <p data-i18n="footer">Data sourced from the Power Per Click spreadsheet. Values may vary with game updates.</p>
+</footer>
+
+<script>
+// ============================================================
+//  CHANGELOG TRANSLATIONS
+// ============================================================
+const CHANGELOG_DATA = {
+  tagLabels: {
+    en:  { new: 'New', update: 'Update' },
+    pt:  { new: 'Novo', update: 'Melhoria' },
+    es:  { new: 'Nuevo', update: 'Mejora' },
+    ru:  { new: 'Новое', update: 'Улучшение' },
+    fr:  { new: 'Nouveau', update: 'Amélioration' },
+    th:  { new: 'ใหม่', update: 'อัปเดต' },
+    fil: { new: 'Bago', update: 'Update' },
+  },
+  versions: [
+    {
+      version: 'v.3',
+      dates: {
+        en: '4 May 2026', pt: '4 de Maio de 2026', es: '4 de Mayo de 2026',
+        ru: '4 мая 2026', fr: '4 Mai 2026', th: '4 พฤษภาคม 2026', fil: '4 Mayo 2026'
+      },
+      items: [
+        {
+          icon: '📊', tag: 'update',
+          en:  { title: 'Updated Max Limits',        desc: 'F2P and P2W plausible/max limits updated based on the latest spreadsheet values (F2P: 153.57 BA / 268.76 BA — P2W: 6.44 BB / 11.34 BB).' },
+          pt:  { title: 'Limites Máximos Atualizados', desc: 'Os limites plausível/máximo de F2P e P2W foram atualizados com base nos valores mais recentes da planilha (F2P: 153,57 BA / 268,76 BA — P2W: 6,44 BB / 11,34 BB).' },
+          es:  { title: 'Límites Máximos Actualizados', desc: 'Los límites plausible/máximo de F2P y P2W se actualizaron con los valores más recientes de la hoja de cálculo (F2P: 153,57 BA / 268,76 BA — P2W: 6,44 BB / 11,34 BB).' },
+          ru:  { title: 'Обновлены Максимальные Лимиты', desc: 'Правдоподобные/максимальные лимиты F2P и P2W обновлены на основе последних значений таблицы (F2P: 153,57 BA / 268,76 BA — P2W: 6,44 BB / 11,34 BB).' },
+          fr:  { title: 'Limites Max Mises à Jour',  desc: 'Les limites plausible/maximale F2P et P2W ont été mises à jour selon les valeurs récentes du tableur (F2P: 153,57 BA / 268,76 BA — P2W: 6,44 BB / 11,34 BB).' },
+          th:  { title: 'อัปเดตขีดจำกัดสูงสุด',     desc: 'ขีดจำกัด F2P และ P2W อัปเดตตามค่าล่าสุดจากสเปรดชีต (F2P: 153,57 BA / 268,76 BA — P2W: 6,44 BB / 11,34 BB)' },
+          fil: { title: 'Na-update ang Max Limits',  desc: 'Na-update ang F2P at P2W plausible/max limits batay sa pinakabagong spreadsheet values (F2P: 153.57 BA / 268.76 BA — P2W: 6.44 BB / 11.34 BB).' },
+        },
+        {
+          icon: '⚡', tag: 'update',
+          en:  { title: 'Max Button — All Units Filled', desc: 'The Max button now correctly fills all unit slots (up to 9 in P2W, 7 in F2P) with the maximum value.' },
+          pt:  { title: 'Botão Max — Todas as Unidades', desc: 'O botão Max agora preenche corretamente todos os slots de unidade (até 9 no P2W, 7 no F2P) com o valor máximo.' },
+          es:  { title: 'Botón Max — Todas las Unidades', desc: 'El botón Max ahora llena correctamente todos los slots de unidad (hasta 9 en P2W, 7 en F2P) con el valor máximo.' },
+          ru:  { title: 'Кнопка Макс — Все Юниты',   desc: 'Кнопка Макс теперь корректно заполняет все слоты юнитов (до 9 в P2W, 7 в F2P) максимальным значением.' },
+          fr:  { title: 'Bouton Max — Toutes les Unités', desc: 'Le bouton Max remplit désormais correctement tous les emplacements d\'unités (jusqu\'à 9 en P2W, 7 en F2P) avec la valeur maximale.' },
+          th:  { title: 'ปุ่ม Max — ทุก Unit',       desc: 'ปุ่ม Max ตอนนี้เติมค่าสูงสุดในทุกช่อง unit อย่างถูกต้อง (สูงสุด 9 ใน P2W, 7 ใน F2P)' },
+          fil: { title: 'Max Button — Lahat ng Unit', desc: 'Ang Max button ay tamang pinupuno na ang lahat ng unit slot (hanggang 9 sa P2W, 7 sa F2P) ng maximum na halaga.' },
+        },
+        {
+          icon: '🌲', tag: 'update',
+          en:  { title: 'Skill Tree (World 9) Labels', desc: 'Fixed section name and slider labels in Skill Tree (World 9) that were showing raw key names instead of readable text.' },
+          pt:  { title: 'Rótulos da Skill Tree (Mundo 9)', desc: 'Corrigido o nome da seção e os rótulos dos sliders da Skill Tree (Mundo 9) que exibiam as chaves brutas em vez do texto legível.' },
+          es:  { title: 'Etiquetas Skill Tree (Mundo 9)', desc: 'Corregido el nombre de sección y las etiquetas de los controles deslizantes de Skill Tree (Mundo 9) que mostraban claves brutas.' },
+          ru:  { title: 'Метки Skill Tree (Мир 9)',   desc: 'Исправлено название секции и метки слайдеров Skill Tree (Мир 9), которые отображали сырые ключи вместо читаемого текста.' },
+          fr:  { title: 'Étiquettes Skill Tree (Monde 9)', desc: 'Correction du nom de section et des étiquettes des curseurs de Skill Tree (Monde 9) qui affichaient des clés brutes.' },
+          th:  { title: 'ป้ายกำกับ Skill Tree (โลก 9)', desc: 'แก้ไขชื่อส่วนและป้ายกำกับ slider ใน Skill Tree (โลก 9) ที่แสดงชื่อ key แทนข้อความที่อ่านได้' },
+          fil: { title: 'Mga Label ng Skill Tree (Mundo 9)', desc: 'Inayos ang pangalan ng seksyon at mga label ng slider sa Skill Tree (Mundo 9) na nagpapakita ng raw key names.' },
+        },
+
+      ]
+    },
+    {
+      version: 'v.2',
+      dates: {
+        en: '29 April 2026', pt: '29 de Abril de 2026', es: '29 de Abril de 2026',
+        ru: '29 апреля 2026', fr: '29 Avril 2026', th: '29 เมษายน 2026', fil: '29 Abril 2026'
+      },
+      items: [
+        {
+          icon: '🔗', tag: 'new',
+          en:  { title: 'Share Build',               desc: 'New button that generates a compressed link with your full build. The link automatically restores all fields when opened.' },
+          pt:  { title: 'Compartilhar Build',         desc: 'Novo botão que gera um link comprimido com todo o seu build. O link carrega automaticamente todos os campos ao ser aberto.' },
+          es:  { title: 'Compartir Build',            desc: 'Nuevo botón que genera un enlace comprimido con todo tu build. El enlace carga automáticamente todos los campos al abrirse.' },
+          ru:  { title: 'Поделиться Билдом',          desc: 'Новая кнопка, генерирующая сжатую ссылку с вашим полным билдом. Ссылка автоматически восстанавливает все поля при открытии.' },
+          fr:  { title: 'Partager le Build',          desc: 'Nouveau bouton qui génère un lien compressé avec tout votre build. Le lien restaure automatiquement tous les champs à l\'ouverture.' },
+          th:  { title: 'แชร์บิลด์',                  desc: 'ปุ่มใหม่ที่สร้างลิงก์แบบบีบอัดพร้อมบิลด์ทั้งหมดของคุณ ลิงก์จะโหลดทุกฟิลด์อัตโนมัติเมื่อเปิด' },
+          fil: { title: 'I-share ang Build',          desc: 'Bagong button na gumagawa ng compressed na link na may buong build mo. Awtomatikong nilo-load ang lahat ng field kapag binuksan.' },
+        },
+        {
+          icon: '⚡', tag: 'new',
+          en:  { title: 'Max Button',                 desc: 'Instantly fills all fields with the maximum available values, making it easy to see the theoretical ceiling of any build.' },
+          pt:  { title: 'Botão Max',                  desc: 'Preenche automaticamente todos os campos com os valores máximos disponíveis, facilitando ver o teto teórico do build.' },
+          es:  { title: 'Botón Max',                  desc: 'Rellena automáticamente todos los campos con los valores máximos disponibles, facilitando ver el techo teórico del build.' },
+          ru:  { title: 'Кнопка Макс',                desc: 'Мгновенно заполняет все поля максимальными доступными значениями, позволяя увидеть теоретический потолок любого билда.' },
+          fr:  { title: 'Bouton Max',                 desc: 'Remplit instantanément tous les champs avec les valeurs maximales disponibles, permettant de voir le plafond théorique d\'un build.' },
+          th:  { title: 'ปุ่ม Max',                   desc: 'เติมค่าสูงสุดในทุกฟิลด์ทันที เพื่อดูเพดานทฤษฎีของบิลด์ได้ง่ายขึ้น' },
+          fil: { title: 'Max Button',                 desc: 'Agad na pinupuno ang lahat ng field ng pinakamataas na available na halaga, para makita ang theoretical ceiling ng build.' },
+        },
+        {
+          icon: '📊', tag: 'new',
+          en:  { title: 'Power Breakdown Panel',      desc: 'New collapsible panel below the main result showing each section\'s percentage contribution (Awakening, Gacha, Swords, etc.) with visual bars — see how each multiplier impacts your total and how far you are from each category\'s maximum.' },
+          pt:  { title: 'Painel de Breakdown de Poder', desc: 'Novo painel recolhível abaixo do resultado principal que exibe a contribuição percentual de cada seção (Despertar, Gacha, Espadas etc.) com barras visuais — veja o impacto de cada multiplicador no total e quanto falta para o máximo de cada categoria.' },
+          es:  { title: 'Panel de Desglose de Poder', desc: 'Nuevo panel desplegable bajo el resultado principal que muestra la contribución porcentual de cada sección (Despertar, Gacha, Espadas, etc.) con barras visuales — ve cuánto impacta cada multiplicador y cuánto falta para el máximo de cada categoría.' },
+          ru:  { title: 'Панель Разбивки Силы',       desc: 'Новая сворачиваемая панель под основным результатом, показывающая процентный вклад каждой секции (Пробуждение, Гача, Мечи и др.) с визуальными полосами — смотрите, как каждый множитель влияет на итог и сколько осталось до максимума.' },
+          fr:  { title: 'Panneau de Décomposition',   desc: 'Nouveau panneau rétractable sous le résultat principal affichant la contribution en % de chaque section (Éveil, Gacha, Épées, etc.) avec des barres visuelles — voyez l\'impact de chaque multiplicateur et ce qu\'il manque pour atteindre le maximum.' },
+          th:  { title: 'แผง Power Breakdown',        desc: 'แผงพับได้ใหม่ใต้ผลลัพธ์หลักที่แสดงการมีส่วนร่วมเป็นเปอร์เซ็นต์ของแต่ละส่วน (การตื่นตัว, กาชา, ดาบ ฯลฯ) พร้อมแถบภาพ — ดูว่าแต่ละตัวคูณส่งผลอย่างไรและห่างจากค่าสูงสุดแค่ไหน' },
+          fil: { title: 'Power Breakdown Panel',      desc: 'Bagong collapsible na panel sa ilalim ng resulta na nagpapakita ng porsyentong kontribusyon ng bawat seksyon (Awakening, Gacha, Espada, atbp.) na may visual na bar — tingnan ang epekto ng bawat multiplier at kung gaano ka na sa maximum.' },
+        },
+        {
+          icon: '🕒', tag: 'new',
+          en:  { title: 'Last Updated Badge',         desc: 'Date badge now displayed in the tool\'s header.' },
+          pt:  { title: 'Badge de Atualização',       desc: 'Badge com a data de atualização exibido no cabeçalho da ferramenta.' },
+          es:  { title: 'Insignia de Actualización',  desc: 'Insignia de fecha mostrada en el encabezado de la herramienta.' },
+          ru:  { title: 'Бейдж Обновления',           desc: 'Бейдж с датой последнего обновления отображается в шапке инструмента.' },
+          fr:  { title: 'Badge de Mise à Jour',       desc: 'Badge de date affiché dans l\'en-tête de l\'outil.' },
+          th:  { title: 'Badge อัปเดตล่าสุด',         desc: 'Badge วันที่แสดงในส่วนหัวของเครื่องมือ' },
+          fil: { title: 'Last Updated Badge',         desc: 'Badge ng petsa na ipinapakita sa header ng tool.' },
+        },
+        {
+          icon: '🎨', tag: 'update',
+          en:  { title: 'Result Bar Redesign',        desc: 'The result panel was restructured with a left/right layout, grouping the Reset, Max, and Share buttons in a dedicated area alongside the F2P/P2W comparisons.' },
+          pt:  { title: 'Redesign da Barra de Resultado', desc: 'O painel de resultado foi reestruturado com layout esquerda/direita, agrupando os botões (Reiniciar, Max, Compartilhar) em uma área dedicada ao lado das comparações F2P/P2W.' },
+          es:  { title: 'Rediseño de la Barra de Resultado', desc: 'El panel de resultado fue reestructurado con diseño izquierda/derecha, agrupando los botones (Reiniciar, Max, Compartir) en un área dedicada junto a las comparaciones F2P/P2W.' },
+          ru:  { title: 'Редизайн Панели Результата', desc: 'Панель результата переработана с макетом лево/право, объединяя кнопки (Сброс, Макс, Поделиться) в отдельной области рядом со сравнениями F2P/P2W.' },
+          fr:  { title: 'Refonte de la Barre de Résultat', desc: 'Le panneau de résultat a été restructuré avec une disposition gauche/droite, regroupant les boutons (Réinitialiser, Max, Partager) dans une zone dédiée aux côtés des comparaisons F2P/P2W.' },
+          th:  { title: 'ปรับดีไซน์ Result Bar',     desc: 'ปรับโครงสร้างแผงผลลัพธ์ใหม่เป็นรูปแบบซ้าย/ขวา โดยจัดกลุ่มปุ่ม (รีเซ็ต, Max, แชร์) ไว้ในพื้นที่เฉพาะข้างการเปรียบเทียบ F2P/P2W' },
+          fil: { title: 'Redesign ng Result Bar',     desc: 'Inayos ang result panel sa left/right na layout, pinagsama ang mga button (I-reset, Max, I-share) sa isang lugar kasabay ng mga paghahambing na F2P/P2W.' },
+        },
+        {
+          icon: '🔢', tag: 'update',
+          en:  { title: 'Multiplier Format (fmt2)',   desc: 'Multiplier badges now display abbreviated suffixes (K, M, B, T) for large numbers, keeping the display clean.' },
+          pt:  { title: 'Formato de Multiplicadores', desc: 'Os badges de multiplicador agora exibem sufixos abreviados (K, M, B, T) para números grandes, tornando a leitura mais limpa.' },
+          es:  { title: 'Formato de Multiplicadores', desc: 'Las insignias de multiplicador ahora muestran sufijos abreviados (K, M, B, T) para números grandes, haciendo la lectura más limpia.' },
+          ru:  { title: 'Формат Множителей',          desc: 'Бейджи множителей теперь отображают сокращённые суффиксы (K, M, B, T) для больших чисел, делая интерфейс чище.' },
+          fr:  { title: 'Format des Multiplicateurs', desc: 'Les badges de multiplicateur affichent désormais des suffixes abrégés (K, M, B, T) pour les grands nombres, rendant la lecture plus propre.' },
+          th:  { title: 'ปรับปรุงรูปแบบตัวคูณ',      desc: 'Badge ตัวคูณแสดงคำต่อท้ายแบบย่อ (K, M, B, T) สำหรับตัวเลขขนาดใหญ่ ทำให้อ่านได้สะอาดขึ้น' },
+          fil: { title: 'Format ng Multiplier',       desc: 'Ang mga multiplier badge ay nagpapakita na ng mga pinaikling suffix (K, M, B, T) para sa malalaking numero, para mas malinis ang display.' },
+        },
+      ]
+    },
+  ]
+};
+
+function renderChangelog() {
+  const lang = currentLang;
+  const tags = CHANGELOG_DATA.tagLabels[lang] || CHANGELOG_DATA.tagLabels.en;
+
+  const versionsHTML = CHANGELOG_DATA.versions.map((v, vi) => {
+    const date = v.dates[lang] || v.dates.en;
+    const itemsHTML = v.items.map(item => {
+      const entry = item[lang] || item.en;
+      const tagClass = item.tag === 'new' ? 'tag-new' : 'tag-update';
+      const tagLabel = item.tag === 'new' ? tags.new : tags.update;
+      return `
+        <div class="changelog-item">
+          <span class="changelog-item-icon">${item.icon}</span>
+          <span class="changelog-item-tag ${tagClass}">${tagLabel}</span>
+          <span class="changelog-item-text"><strong>${entry.title}</strong> — ${entry.desc}</span>
+        </div>`;
+    }).join('');
+
+    const isFirst = vi === 0;
+    return `
+      <div${isFirst ? '' : ' style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);"'}>
+        <div class="changelog-version">
+          <span class="changelog-version-tag">${v.version}</span>
+          <span class="changelog-version-date">${date}</span>
+        </div>
+        <div class="changelog-items">${itemsHTML}</div>
+      </div>`;
+  }).join('');
+
+  document.getElementById('changelogBody').innerHTML = versionsHTML;
+}
+
+// ============================================================
+//  TRANSLATIONS
+// ============================================================
+const TRANSLATIONS = {
+  en: {
+    subtitle:       "Build your setup and see your total Power Per Click multiplier",
+    yourPPC:        "Your Power Per Click",
+    f2pPlaus:       "F2P Plausible",
+    f2pMax:         "F2P Max",
+    p2wPlaus:       "P2W Plausible",
+    p2wMax:         "P2W Max",
+    ofLimit:        "of limit",
+    awakeLevel:     "Awakening & Level",
+    gamepasses:     "Gamepasses",
+    accessories:    "Accessories (5 slots)",
+    gacha:          "Gacha",
+    progressions:   "Progressions",
+    swords:         "Swords",
+    stats:          "Stats",
+    skillTree:      "Skill Tree (World 2)",
+    skillTreeW9:    "Skill Tree (World 9)",
+    trialTempest:   "Trial & Tempest Upgrades",
+    achievements:   "Achievements",
+    unitsTitle:     n => `Units (up to ${n})`,
+    awakening:      "Awakening",
+    level:          "Level",
+    worldsIndex:    "Worlds (Index)",
+    potions:        "Potions",
+    potion3:        "Power Potion III",
+    potion2:        "Power Potion II",
+    potion1:        "Power Potion I",
+    gp2x:           "2x Power",
+    sideQuestsLabel:"Side Quests",
+    questsDone:     "Quests done",
+    skillStart:     "Start",
+    powerSkill:     "Power (×1.15 each)",
+    skillStartW9:   "Start",
+    powerSkillW9:   "Power",
+    insanePower:    "Insane Power (×1.2)",
+    trialUpgLabel:  "Trial Upgrades",
+    tempestUpgLabel:"Tempest Upgrades",
+    fighter:        "Fighter",
+    fighter2:       "Fighter 2",
+    titleLabel:     "Title",
+    avatar:         "Avatar",
+    avatarLevel:    "Avatar Level",
+    sword1:         "Sword 1",
+    sword2:         "Sword 2",
+    enchant1:       "Enchant 1",
+    enchant2:       "Enchant 2",
+    fighter2:       "Fighter 2",
+    fightingStyle:  "Fighting Style",
+    demonLord:      "Demon Lord",
+    domain:         "Domain",
+    system:         "System",
+    unitN:          n => `Unit ${n+1}`,
+    btnReset:       "↺ Reset",
+    btnMax:         "⚡ Max",
+    btnShare:       "🔗 Share Build",
+    btnShareCopied: "✓ Copied!",
+    lastUpdated:    "Last updated:",
+    powerBreakdown: "📊 Power Breakdown",
+    bdSection:      "Section",
+    bdProgress:     "Progress to max",
+    bdContrib:      "Contribution",
+    bdMult:         "Multiplier",
+    bdCurrent:      "Current fill",
+    bdRemaining:    "Remaining to max",
+    bdAtMax:        "at max",
+    bdNeed:         "need",
+    footer:         "Data sourced from the Power Per Click spreadsheet. Values may vary with game updates.",
+  },
+  pt: {
+    subtitle:       "Configure seu build e veja seu multiplicador total de Poder Por Clique",
+    yourPPC:        "Seu Poder Por Clique",
+    f2pPlaus:       "F2P Plausível",
+    f2pMax:         "F2P Máximo",
+    p2wPlaus:       "P2W Plausível",
+    p2wMax:         "P2W Máximo",
+    ofLimit:        "do limite",
+    awakeLevel:     "Despertar & Nível",
+    gamepasses:     "Gamepasses",
+    accessories:    "Acessórios (5 slots)",
+    gacha:          "Gacha",
+    progressions:   "Progressões",
+    swords:         "Espadas",
+    stats:          "Estatísticas",
+    skillTree:      "Skill Tree (Mundo 2)",
+    skillTreeW9:    "Skill Tree (Mundo 9)",
+    trialTempest:   "Upgrades de Trial & Tempest",
+    achievements:   "Conquistas",
+    unitsTitle:     n => `Unidades (até ${n})`,
+    awakening:      "Despertar",
+    level:          "Nível",
+    worldsIndex:    "Mundos (Índice)",
+    potions:        "Poções",
+    potion3:        "Poção de Poder III",
+    potion2:        "Poção de Poder II",
+    potion1:        "Poção de Poder I",
+    gp2x:           "2x Poder",
+    sideQuestsLabel:"Missões Secundárias",
+    questsDone:     "Missões feitas",
+    skillStart:     "Início",
+    powerSkill:     "Poder (×1.15 cada)",
+    skillStartW9:   "Início",
+    powerSkillW9:   "Poder",
+    insanePower:    "Poder Insano (×1.2)",
+    trialUpgLabel:  "Upgrades de Trial",
+    tempestUpgLabel:"Upgrades de Tempest",
+    fighter:        "Lutador",
+    fighter2:       "Lutador 2",
+    titleLabel:     "Título",
+    avatar:         "Avatar",
+    avatarLevel:    "Nível do Avatar",
+    sword1:         "Espada 1",
+    sword2:         "Espada 2",
+    enchant1:       "Encantamento 1",
+    enchant2:       "Encantamento 2",
+    fighter2:       "Lutador 2",
+    fightingStyle:  "Estilo de Luta",
+    demonLord:      "Senhor Demônio",
+    domain:         "Domínio",
+    system:         "Sistema",
+    unitN:          n => `Unidade ${n+1}`,
+    btnReset:       "↺ Reiniciar",
+    btnMax:         "⚡ Max",
+    btnShare:       "🔗 Compartilhar Build",
+    btnShareCopied: "✓ Copiado!",
+    lastUpdated:    "Última atualização:",
+    powerBreakdown: "📊 Distribuição de Poder",
+    bdSection:      "Seção",
+    bdProgress:     "Progresso até o máx.",
+    bdContrib:      "Contribuição",
+    bdMult:         "Multiplicador",
+    bdCurrent:      "Preenchimento atual",
+    bdRemaining:    "Restante até o máx.",
+    bdAtMax:        "no máximo",
+    bdNeed:         "faltam",
+    footer:         "Dados baseados na planilha Power Per Click. Os valores podem variar com atualizações do jogo.",
+  },
+  es: {
+    subtitle:       "Configura tu build y ve tu multiplicador total de Poder Por Clic",
+    yourPPC:        "Tu Poder Por Clic",
+    f2pPlaus:       "F2P Plausible",
+    f2pMax:         "F2P Máximo",
+    p2wPlaus:       "P2W Plausible",
+    p2wMax:         "P2W Máximo",
+    ofLimit:        "del límite",
+    awakeLevel:     "Despertar & Nivel",
+    gamepasses:     "Gamepasses",
+    accessories:    "Accesorios (5 ranuras)",
+    gacha:          "Gacha",
+    progressions:   "Progresiones",
+    swords:         "Espadas",
+    stats:          "Estadísticas",
+    skillTree:      "Árbol de Habilidades (Mundo 2)",
+    skillTreeW9:    "Árbol de Habilidades (Mundo 9)",
+    trialTempest:   "Mejoras de Trial & Tempest",
+    achievements:   "Logros",
+    unitsTitle:     n => `Unidades (hasta ${n})`,
+    awakening:      "Despertar",
+    level:          "Nivel",
+    worldsIndex:    "Mundos (Índice)",
+    potions:        "Pociones",
+    potion3:        "Poción de Poder III",
+    potion2:        "Poción de Poder II",
+    potion1:        "Poción de Poder I",
+    gp2x:           "2x Poder",
+    sideQuestsLabel:"Misiones Secundarias",
+    questsDone:     "Misiones hechas",
+    skillStart:     "Inicio",
+    powerSkill:     "Poder (×1.15 c/u)",
+    skillStartW9:   "Inicio",
+    powerSkillW9:   "Poder",
+    insanePower:    "Poder Insano (×1.2)",
+    trialUpgLabel:  "Mejoras de Trial",
+    tempestUpgLabel:"Mejoras de Tempest",
+    fighter:        "Luchador",
+    fighter2:       "Luchador 2",
+    titleLabel:     "Título",
+    avatar:         "Avatar",
+    avatarLevel:    "Nivel de Avatar",
+    sword1:         "Espada 1",
+    sword2:         "Espada 2",
+    enchant1:       "Encantamiento 1",
+    enchant2:       "Encantamiento 2",
+    fighter2:       "Luchador 2",
+    fightingStyle:  "Estilo de Lucha",
+    demonLord:      "Señor Demonio",
+    domain:         "Dominio",
+    system:         "Sistema",
+    unitN:          n => `Unidad ${n+1}`,
+    btnReset:       "↺ Reiniciar",
+    btnMax:         "⚡ Max",
+    btnShare:       "🔗 Compartir Build",
+    btnShareCopied: "✓ ¡Copiado!",
+    lastUpdated:    "Última actualización:",
+    powerBreakdown: "📊 Desglose de Poder",
+    bdSection:      "Sección",
+    bdProgress:     "Progreso al máx.",
+    bdContrib:      "Contribución",
+    bdMult:         "Multiplicador",
+    bdCurrent:      "Relleno actual",
+    bdRemaining:    "Restante al máx.",
+    bdAtMax:        "al máximo",
+    bdNeed:         "faltan",
+    footer:         "Datos de la hoja de cálculo Power Per Click. Los valores pueden variar con actualizaciones del juego.",
+  },
+  ru: {
+    subtitle:       "Настройте билд и узнайте общий множитель Силы За Клик",
+    yourPPC:        "Ваша Сила За Клик",
+    f2pPlaus:       "F2P Реально",
+    f2pMax:         "F2P Максимум",
+    p2wPlaus:       "P2W Реально",
+    p2wMax:         "P2W Максимум",
+    ofLimit:        "от лимита",
+    awakeLevel:     "Пробуждение & Уровень",
+    gamepasses:     "Гейм-пассы",
+    accessories:    "Аксессуары (5 слотов)",
+    gacha:          "Гача",
+    progressions:   "Прогрессии",
+    swords:         "Мечи",
+    stats:          "Характеристики",
+    skillTree:      "Дерево Навыков (Мир 2)",
+    skillTreeW9:    "Дерево Навыков (Мир 9)",
+    trialTempest:   "Улучшения Trial & Tempest",
+    achievements:   "Достижения",
+    unitsTitle:     n => `Юниты (до ${n})`,
+    awakening:      "Пробуждение",
+    level:          "Уровень",
+    worldsIndex:    "Миры (Индекс)",
+    potions:        "Зелья",
+    potion3:        "Зелье Силы III",
+    potion2:        "Зелье Силы II",
+    potion1:        "Зелье Силы I",
+    gp2x:           "2x Сила",
+    sideQuestsLabel:"Побочные Задания",
+    questsDone:     "Выполнено заданий",
+    skillStart:     "Начало",
+    powerSkill:     "Сила (×1.15 каждое)",
+    skillStartW9:   "Начало",
+    powerSkillW9:   "Сила",
+    insanePower:    "Безумная Сила (×1.2)",
+    trialUpgLabel:  "Улучшения Trial",
+    tempestUpgLabel:"Улучшения Tempest",
+    fighter:        "Боец",
+    fighter2:       "Боец 2",
+    titleLabel:     "Звание",
+    avatar:         "Аватар",
+    avatarLevel:    "Уровень Аватара",
+    sword1:         "Меч 1",
+    sword2:         "Меч 2",
+    enchant1:       "Зачарование 1",
+    enchant2:       "Зачарование 2",
+    fighter2:       "Боец 2",
+    fightingStyle:  "Стиль Боя",
+    demonLord:      "Повелитель Демонов",
+    domain:         "Домен",
+    system:         "Система",
+    unitN:          n => `Юнит ${n+1}`,
+    btnReset:       "↺ Сброс",
+    btnMax:         "⚡ Макс",
+    btnShare:       "🔗 Поделиться",
+    btnShareCopied: "✓ Скопировано!",
+    lastUpdated:    "Обновлено:",
+    powerBreakdown: "📊 Разбивка Силы",
+    bdSection:      "Секция",
+    bdProgress:     "Прогресс до макс.",
+    bdContrib:      "Вклад",
+    bdMult:         "Множитель",
+    bdCurrent:      "Текущее заполнение",
+    bdRemaining:    "До максимума",
+    bdAtMax:        "максимум",
+    bdNeed:         "нужно",
+    footer:         "Данные из таблицы Power Per Click. Значения могут изменяться с обновлениями игры.",
+  },
+  fr: {
+    subtitle:       "Configurez votre build et voyez votre multiplicateur total de Puissance Par Clic",
+    yourPPC:        "Votre Puissance Par Clic",
+    f2pPlaus:       "F2P Plausible",
+    f2pMax:         "F2P Maximum",
+    p2wPlaus:       "P2W Plausible",
+    p2wMax:         "P2W Maximum",
+    ofLimit:        "de la limite",
+    awakeLevel:     "Éveil & Niveau",
+    gamepasses:     "Gamepasses",
+    accessories:    "Accessoires (5 emplacements)",
+    gacha:          "Gacha",
+    progressions:   "Progressions",
+    swords:         "Épées",
+    stats:          "Statistiques",
+    skillTree:      "Arbre de Compétences (Monde 2)",
+    skillTreeW9:    "Arbre de Compétences (Monde 9)",
+    trialTempest:   "Améliorations Trial & Tempest",
+    achievements:   "Succès",
+    unitsTitle:     n => `Unités (jusqu'à ${n})`,
+    awakening:      "Éveil",
+    level:          "Niveau",
+    worldsIndex:    "Mondes (Index)",
+    potions:        "Potions",
+    potion3:        "Potion de Puissance III",
+    potion2:        "Potion de Puissance II",
+    potion1:        "Potion de Puissance I",
+    gp2x:           "2x Puissance",
+    sideQuestsLabel:"Quêtes Secondaires",
+    questsDone:     "Quêtes accomplies",
+    skillStart:     "Début",
+    powerSkill:     "Puissance (×1.15 chacun)",
+    skillStartW9:   "Début",
+    powerSkillW9:   "Puissance",
+    insanePower:    "Puissance Insensée (×1.2)",
+    trialUpgLabel:  "Améliorations Trial",
+    tempestUpgLabel:"Améliorations Tempest",
+    fighter:        "Combattant",
+    fighter2:       "Combattant 2",
+    titleLabel:     "Titre",
+    avatar:         "Avatar",
+    avatarLevel:    "Niveau d'Avatar",
+    sword1:         "Épée 1",
+    sword2:         "Épée 2",
+    enchant1:       "Enchantement 1",
+    enchant2:       "Enchantement 2",
+    fighter2:       "Combattant 2",
+    fightingStyle:  "Style de Combat",
+    demonLord:      "Seigneur Démon",
+    domain:         "Domaine",
+    system:         "Système",
+    unitN:          n => `Unité ${n+1}`,
+    btnReset:       "↺ Réinitialiser",
+    btnMax:         "⚡ Max",
+    btnShare:       "🔗 Partager le Build",
+    btnShareCopied: "✓ Copié!",
+    lastUpdated:    "Dernière mise à jour :",
+    powerBreakdown: "📊 Décomposition de Puissance",
+    bdSection:      "Section",
+    bdProgress:     "Progression vers le max.",
+    bdContrib:      "Contribution",
+    bdMult:         "Multiplicateur",
+    bdCurrent:      "Remplissage actuel",
+    bdRemaining:    "Restant jusqu'au max.",
+    bdAtMax:        "au maximum",
+    bdNeed:         "manque",
+    footer:         "Données issues de la feuille de calcul Power Per Click. Les valeurs peuvent varier selon les mises à jour.",
+  },
+  th: {
+    subtitle:       "สร้างบิลด์ของคุณและดูตัวคูณพลังต่อการคลิกทั้งหมด",
+    yourPPC:        "พลังต่อคลิกของคุณ",
+    f2pPlaus:       "F2P เป็นไปได้",
+    f2pMax:         "F2P สูงสุด",
+    p2wPlaus:       "P2W เป็นไปได้",
+    p2wMax:         "P2W สูงสุด",
+    ofLimit:        "ของขีดจำกัด",
+    awakeLevel:     "การตื่นตัว & ระดับ",
+    gamepasses:     "เกมแพส",
+    accessories:    "อุปกรณ์เสริม (5 ช่อง)",
+    gacha:          "กาชา",
+    progressions:   "ความก้าวหน้า",
+    swords:         "ดาบ",
+    stats:          "สถิติ",
+    skillTree:      "ต้นไม้สกิล (โลก 2)",
+    skillTreeW9:    "ต้นไม้สกิล (โลก 9)",
+    trialTempest:   "อัปเกรด Trial & Tempest",
+    achievements:   "ความสำเร็จ",
+    unitsTitle:     n => `ยูนิต (สูงสุด ${n})`,
+    awakening:      "การตื่นตัว",
+    level:          "ระดับ",
+    worldsIndex:    "โลก (ดัชนี)",
+    potions:        "โพชั่น",
+    potion3:        "โพชั่นพลัง III",
+    potion2:        "โพชั่นพลัง II",
+    potion1:        "โพชั่นพลัง I",
+    gp2x:           "2x พลัง",
+    sideQuestsLabel:"ภารกิจเสริม",
+    questsDone:     "ภารกิจที่ทำ",
+    skillStart:     "เริ่มต้น",
+    powerSkill:     "พลัง (×1.15 แต่ละ)",
+    skillStartW9:   "เริ่มต้น",
+    powerSkillW9:   "พลัง",
+    insanePower:    "พลังบ้าคลั่ง (×1.2)",
+    trialUpgLabel:  "อัปเกรด Trial",
+    tempestUpgLabel:"อัปเกรด Tempest",
+    fighter:        "นักสู้",
+    fighter2:       "นักสู้ 2",
+    titleLabel:     "ตำแหน่ง",
+    avatar:         "อวตาร",
+    avatarLevel:    "ระดับอวตาร",
+    sword1:         "ดาบ 1",
+    sword2:         "ดาบ 2",
+    enchant1:       "คาถา 1",
+    enchant2:       "คาถา 2",
+    fighter2:       "นักสู้ 2",
+    fightingStyle:  "สไตล์การต่อสู้",
+    demonLord:      "เจ้าปีศาจ",
+    domain:         "โดเมน",
+    system:         "ระบบ",
+    unitN:          n => `ยูนิต ${n+1}`,
+    btnReset:       "↺ รีเซ็ต",
+    btnMax:         "⚡ แม็กซ์",
+    btnShare:       "🔗 แชร์บิลด์",
+    btnShareCopied: "✓ คัดลอกแล้ว!",
+    lastUpdated:    "อัปเดตล่าสุด:",
+    powerBreakdown: "📊 การแจกแจงพลัง",
+    bdSection:      "หมวด",
+    bdProgress:     "ความคืบหน้าสู่สูงสุด",
+    bdContrib:      "การมีส่วนร่วม",
+    bdMult:         "ตัวคูณ",
+    bdCurrent:      "ค่าปัจจุบัน",
+    bdRemaining:    "เหลือถึงสูงสุด",
+    bdAtMax:        "สูงสุดแล้ว",
+    bdNeed:         "ต้องการ",
+    footer:         "ข้อมูลจากสเปรดชีต Power Per Click ค่าอาจแตกต่างตามการอัปเดตเกม",
+  },
+  fil: {
+    subtitle:       "I-set up ang iyong build at tingnan ang iyong kabuuang Power Per Click multiplier",
+    yourPPC:        "Ang Iyong Power Per Click",
+    f2pPlaus:       "F2P Posible",
+    f2pMax:         "F2P Pinakamataas",
+    p2wPlaus:       "P2W Posible",
+    p2wMax:         "P2W Pinakamataas",
+    ofLimit:        "ng limitasyon",
+    awakeLevel:     "Awakening & Antas",
+    gamepasses:     "Mga Gamepass",
+    accessories:    "Mga Accessory (5 slot)",
+    gacha:          "Gacha",
+    progressions:   "Mga Progression",
+    swords:         "Mga Espada",
+    stats:          "Mga Estadistika",
+    skillTree:      "Skill Tree (Mundo 2)",
+    skillTreeW9:    "Skill Tree (Mundo 9)",
+    trialTempest:   "Mga Upgrade ng Trial & Tempest",
+    achievements:   "Mga Tagumpay",
+    unitsTitle:     n => `Mga Unit (hanggang ${n})`,
+    awakening:      "Awakening",
+    level:          "Antas",
+    worldsIndex:    "Mga Mundo (Index)",
+    potions:        "Mga Potion",
+    potion3:        "Power Potion III",
+    potion2:        "Power Potion II",
+    potion1:        "Power Potion I",
+    gp2x:           "2x Power",
+    sideQuestsLabel:"Mga Side Quest",
+    questsDone:     "Mga quest na tapos",
+    skillStart:     "Simula",
+    powerSkill:     "Power (×1.15 bawat isa)",
+    skillStartW9:   "Simula",
+    powerSkillW9:   "Power",
+    insanePower:    "Insane Power (×1.2)",
+    trialUpgLabel:  "Mga Upgrade ng Trial",
+    tempestUpgLabel:"Mga Upgrade ng Tempest",
+    fighter:        "Manlalaban",
+    fighter2:       "Manlalaban 2",
+    titleLabel:     "Pamagat",
+    avatar:         "Avatar",
+    avatarLevel:    "Antas ng Avatar",
+    sword1:         "Espada 1",
+    sword2:         "Espada 2",
+    enchant1:       "Enchant 1",
+    enchant2:       "Enchant 2",
+    fighter2:       "Manlalaban 2",
+    fightingStyle:  "Estilo ng Paglalaban",
+    demonLord:      "Panginoong Demonyo",
+    domain:         "Dominyo",
+    system:         "Sistema",
+    unitN:          n => `Unit ${n+1}`,
+    btnReset:       "↺ I-reset",
+    btnMax:         "⚡ Max",
+    btnShare:       "🔗 I-share ang Build",
+    btnShareCopied: "✓ Nakopya!",
+    lastUpdated:    "Huling na-update:",
+    powerBreakdown: "📊 Power Breakdown",
+    bdSection:      "Seksyon",
+    bdProgress:     "Progress sa max",
+    bdContrib:      "Kontribusyon",
+    bdMult:         "Multiplier",
+    bdCurrent:      "Kasalukuyang fill",
+    bdRemaining:    "Natitira sa max",
+    bdAtMax:        "nasa max na",
+    bdNeed:         "kailangan",
+    footer:         "Datos mula sa Power Per Click spreadsheet. Maaaring mag-iba ang mga halaga sa mga update ng laro.",
+  },
+};
+
+let currentLang = 'en';
+
+function t(key, ...args) {
+  const dict = TRANSLATIONS[currentLang] || TRANSLATIONS.en;
+  const val = dict[key] !== undefined ? dict[key] : (TRANSLATIONS.en[key] || key);
+  return typeof val === 'function' ? val(...args) : val;
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  // Update active button
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('onclick') === `setLang('${lang}')`);
+  });
+  applyLang();
+  renderChangelog();
+  try { localStorage.setItem('ppc_lang', lang); } catch(e) {}
+  calc();
+}
+
+function applyLang() {
+  // Update all data-i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    // Skip the share button if it's in "copied" state
+    if (el.id === 'shareBtn' && el.classList.contains('copied')) return;
+    el.textContent = t(el.dataset.i18n);
+  });
+  // Update unit card title (dynamic with count)
+  const maxUnits = isP2W ? 9 : 7;
+  document.getElementById('unitsCardTitle').textContent = t('unitsTitle', maxUnits);
+  // Update unit labels inside slots
+  document.querySelectorAll('.unit-num[data-unit-idx]').forEach(el => {
+    const idx = parseInt(el.dataset.unitIdx);
+    el.textContent = t('unitN', idx);
+  });
+  // Update progression row labels
+  const progKeys = ['fightingStyle', 'demonLord', 'domain', 'system'];
+  document.querySelectorAll('.prog-label').forEach((el, i) => {
+    el.textContent = t(progKeys[i]);
+  });
+}
+
+// ============================================================
+//  DATA
+// ============================================================
+const BASE_CLICK = 1.0;
+
+const AWAKENINGS = [0,1,1.5,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536,131072,262144,524288,1048576,2097152,4194304,8388608,16800000,33600000,67200000,134400000,537600000,1075200000,2150000000,4310000000,8620000000,17240000000,34480000000];
+
+const INDEX_MULT = [1,1.1,1.21,1.331,1.4641,1.61051,1.771561,1.9487171,2.14358881,2.357947691];
+
+const ACCESSORIES = [
+  { name: "None",           mult: [1,1,1,1,1,1,1,1] },
+  { name: "Admiral Cape",   mult: [1,1.05,1.16,1.31,1.47,1.68,1.94,2.63] },
+  { name: "Slime Wings",    mult: [1,1.1,1.21,1.38,1.54,1.76,2.04,2.75] },
+  { name: "Saiyan Armor",   mult: [1,1.05,1.16,1.31,1.47,1.68,1.94,2.63] },
+  { name: "Volcano Cape",   mult: [1,1.1,1.21,1.38,1.54,1.76,2.04,2.75] },
+  { name: "Cute Slime",     mult: [1,1.1,1.21,1.38,1.54,1.76,2.04,2.75] },
+  { name: "Fire Hat",       mult: [1,1.05,1.16,1.31,1.47,1.68,1.94,2.63] },
+  { name: "Oatmeel",        mult: [1,1.05,1.16,1.31,1.47,1.68,1.94,2.63] },
+  { name: "Rimuro Mask",    mult: [1,1.1,1.21,1.38,1.54,1.76,2.04,2.75] },
+  { name: "Zama Mask",      mult: [1,1.05,1.16,1.31,1.47,1.68,1.94,2.63] },
+  { name: "Sorcerer Belt",  mult: [1,1.1,1.21,1.38,1.54,1.76,2.04,2.75] },
+  { name: "Saiyan Tail",    mult: [1,1.05,1.16,1.31,1.47,1.68,1.94,2.63] },
+  { name: "Panda Mask",     mult: [1,1.15,1.26,1.44,1.61,1.84,2.13,2.88] },
+  { name: "Dharmachakre",   mult: [1,1.15,1.26,1.44,1.61,1.84,2.13,2.88] },
+  { name: "Igros Helmet",     mult: [1,1.2,1.31,1.5,1.68,1.92,2.22,3.0] },
+];
+const ACC_RARITIES = ["None","Common","Uncommon","Rare","Epic","Legendary","Mythical","Secret"];
+const ACC_SLOTS = [
+  { name: "Back",  items: [0, 1, 2] },
+  { name: "Body",  items: [0, 3, 4] },
+  { name: "Head",  items: [0, 5, 6, 13, 14] },
+  { name: "Mask",  items: [0, 7, 8, 9, 12] },
+  { name: "Waist", items: [0, 11, 10] },
+];
+
+const GACHA_ITEMS = [
+  { name: "Haki",             mults: {None:1,Common:1.1,Uncommon:1.25,Rare:1.5,Epic:2.0,Legendary:3.5,Mythical:5.0,Secret:10.0} },
+  { name: "Race",             mults: {None:1,Common:1.1,Uncommon:1.25,Rare:1.5,Epic:2.0,Legendary:3.5,Mythical:5.0,Secret:10.0} },
+  { name: "Dragon Power",     mults: {None:1,Common:1.05,Uncommon:1.1,Rare:1.15,Epic:1.25,Legendary:1.5,Mythical:2.0,Secret:4.0} },
+  { name: "Slime Power",      mults: {None:1,Common:1.1,Uncommon:1.25,Rare:1.5,Epic:2.0,Legendary:3.5,Mythical:5.0,Secret:10.0} },
+  { name: "Cursed Technique", mults: {None:1,Common:1.1,Uncommon:1.25,Rare:1.5,Epic:2.0,Legendary:3.5,Mythical:5.0,Secret:10.0} },
+  { name: "Cursed Spirit",    mults: {None:1,Common:1.1,Uncommon:1.25,Rare:1.5,Epic:2.0,Legendary:3.5,Mythical:5.0,Secret:10.0} },
+  { name: "Hunter Rank",      mults: {None:1,Common:1.1,Uncommon:1.25,Rare:1.5,Epic:2.0,Legendary:3.5,Mythical:5.0,Secret:10.0} },
+];
+
+const PROG_FS = [0,1.02,1.04,1.06,1.08,1.1,1.12,1.14,1.16,1.18,1.2,1.22,1.24,1.26,1.28,1.3,1.32,1.34,1.36,1.38,1.4,1.42,1.44,1.46,1.48,1.5,1.52,1.54,1.56,1.58,1.6,1.62,1.64,1.66,1.68,1.7,1.72,1.74,1.76,1.78,1.8,1.82,1.84,1.86,1.88,1.9,1.92,1.94,1.96,1.98,2,2.02,2.04,2.06,2.08,2.1,2.12,2.14,2.16,2.18,2.2,2.22,2.24,2.26,2.28,2.3,2.32,2.34,2.36,2.38,2.4,2.42,2.44,2.46,2.48,2.5,2.52,2.54,2.56,2.58,2.6,2.62,2.64,2.66,2.68,2.7,2.72,2.74,2.76,2.78,2.8,2.82,2.84,2.86,2.88,2.9,2.92,2.94,2.96,2.98,3];
+const PROG_DL = [0,1.02,1.05,1.08,1.1,1.13,1.15,1.18,1.2,1.23,1.25,1.28,1.3,1.33,1.35,1.38,1.4,1.43,1.45,1.48,1.5,1.53,1.55,1.58,1.6,1.63,1.65,1.68,1.7,1.73,1.75,1.78,1.8,1.83,1.85,1.88,1.9,1.93,1.95,1.98,2.0,2.03,2.05,2.08,2.1,2.13,2.15,2.18,2.2,2.23,2.25,2.28,2.3,2.33,2.35,2.38,2.4,2.43,2.45,2.48,2.5,2.53,2.55,2.58,2.6,2.63,2.65,2.68,2.7,2.73,2.75,2.78,2.8,2.83,2.85,2.88,2.9,2.93,2.95,2.98,3.0,3.03,3.05,3.08,3.1,3.13,3.15,3.18,3.2,3.23,3.25,3.28,3.3,3.33,3.35,3.38,3.4,3.43,3.45,3.48,3.5];
+const PROG_DOMAIN = PROG_DL;
+const PROG_SYS    = PROG_DL; // System progression — same curve as Demon Lord/Domain
+
+const SWORDS = [
+  {name:"None",mult:1},{name:"Saw Blade",mult:1.15},{name:"Blood Scythe",mult:1.25},
+  {name:"Lostvayne",mult:1.5},{name:"Bisento",mult:1.75},{name:"Uzue Blade",mult:2.0},
+  {name:"King Spear",mult:2.5},{name:"Yoru",mult:5.0}
+];
+
+const ENCHANTS = [
+  {name:"None",mult:1},
+  {name:"Cursed Touch",mult:1.25},
+  {name:"Arcane Sovereignty",mult:1.35},
+  {name:"Nature Blessing",mult:1.5},
+  {name:"Ancestral Domain",mult:1.75},
+];
+
+// Skill Tree W9 Power multipliers per level (1–10)
+// SKILL_W9 removed — W9 now uses additive formula: 1 + (start?0.1:0) + nodes*0.24
+
+const FIGHTERS = [
+  {name:"None",mult:1},{name:"Sakamote",mult:1.0},{name:"Ayanokoje",mult:1.0},
+  {name:"Seika",mult:1.0},{name:"Jenos",mult:1.0},{name:"Sankoji",mult:1.1},
+  {name:"Power",mult:1.25},{name:"Kenpachi",mult:1.5}
+];
+
+const TITLES = [
+  {name:"None",mult:1},{name:"Demon Lord",mult:1.15},{name:"Black Sword",mult:1.2},{name:"Dual Blade",mult:1.3},{name:"King of Curses",mult:1.5}
+];
+
+const AVATARS = [
+  {name:"None",      levels:[1]},
+  {name:"Ussopa",    levels:[1.25,1.34,1.44,1.54,1.66,1.78,1.92,2.06,2.22,2.38,2.56,2.76,2.96,3.19,3.43,3.68,3.96,4.26,4.58,4.92,5.29,5.69,6.11,6.57,7.07,7.6,8.17,8.78,9.44,10.15,10.91,11.73,12.61,13.55,14.57]},
+  {name:"Fire Fists",levels:[1.5,1.61,1.73,1.86,2,2.15,2.31,2.48,2.67,2.87,3.09,3.32,3.57,3.84,4.12,4.43,4.77,5.12,5.51,5.92,6.37,6.84,7.36,7.91,8.5,9.14,9.83,10.57,11.36,12.21,13.13,14.11,15.17,16.31,17.53]},
+  {name:"Katakure",  levels:[1.75,1.88,2.02,2.17,2.33,2.51,2.7,2.9,3.12,3.35,3.6,3.87,4.16,4.48,4.81,5.17,5.56,5.98,6.43,6.91,7.43,7.99,8.59,9.23,9.92,10.67,11.47,12.33,13.25,14.25,15.32,16.47,17.7,19.03,20.46]},
+  {name:"Rogerio",   levels:[2,2.15,2.31,2.48,2.67,2.87,3.08,3.31,3.56,3.83,4.12,4.43,4.76,5.12,5.5,5.91,6.36,6.83,7.35,7.9,8.49,9.13,9.81,10.55,11.34,12.19,13.11,14.09,15.15,16.28,17.5,18.82,20.23,21.75,23.38]},
+  {name:"Nika Luffe",levels:[4.5,4.83,5.2,5.59,6,6.46,6.94,7.46,8.02,8.62,9.27,9.97,10.71,11.52,12.38,13.31,14.31,15.38,16.54,17.78,19.11,20.54,22.09,23.74,25.52,27.44,29.5,31.71,34.09,36.64,39.39,42.35,45.52,48.94,52.61]},
+  {name:"Mr San",    levels:[2.35,2.52,2.71,2.91,3.13,3.37,3.62,3.89,4.19,4.5,4.84,5.2,5.59,6.01,6.46,6.95,7.47,8.03,8.63,9.28,9.98,10.73,11.53,12.4,13.33,14.33,15.4,16.56,17.8,19.13,20.57,22.11,23.77,25.55,27.47]},
+  {name:"San Geko",  levels:[2.7,2.9,3.12,3.35,3.6,3.87,4.16,4.47,4.81,5.17,5.56,5.98,6.43,6.91,7.43,7.98,8.58,9.23,9.92,10.66,11.46,12.32,13.25,14.24,15.31,16.46,17.7,19.02,20.45,21.98,23.63,25.41,27.31,29.36,31.56]},
+  {name:"Jeren",     levels:[3.05,3.27,3.52,3.78,4.07,4.37,4.7,5.06,5.43,5.84,6.28,6.75,7.26,7.8,8.39,9.02,9.7,10.42,11.21,12.05,12.95,13.92,14.97,16.09,17.3,18.59,19.99,21.49,23.1,24.83,26.7,28.7,30.85,33.17,35.66]},
+  {name:"Gegota",    levels:[3.4,3.65,3.92,4.22,4.54,4.88,5.24,5.64,6.06,6.51,7,7.53,8.09,8.7,9.35,10.06,10.81,11.62,12.49,13.43,14.44,15.52,16.69,17.94,19.28,20.73,22.28,23.96,25.75,27.69,29.76,31.99,34.39,36.97,39.75]},
+  {name:"Brole",     levels:[7.05,7.57,8.14,8.75,9.41,10.12,10.88,11.69,12.57,13.51,14.53,15.62,16.79,18.05,19.4,20.86,22.42,24.1,25.91,27.85,29.94,32.19,34.6,37.2,39.99,42.99,46.21,49.68,53.41,57.41,61.72,66.35,71.32,76.67,82.42]},
+  {name:"Benymaro",  levels:[3.9,4.19,4.5,4.84,5.2,5.59,6.01,6.47,6.95,7.47,8.03,8.64,9.28,9.98,10.73,11.53,12.4,13.33,14.33,15.41,16.56,17.8,19.14,20.58,22.12,23.78,25.56,27.48,29.54,31.76,34.14,36.7,39.45,42.41,45.59]},
+  {name:"Milina",    levels:[4.4,4.73,5.08,5.46,5.87,6.31,6.79,7.29,7.84,8.43,9.06,9.74,10.47,11.26,12.11,13.01,13.99,15.04,16.17,17.38,18.69,20.09,21.59,23.21,24.96,26.83,28.84,31,33.33,35.83,38.52,41.41,44.51,47.85,51.44]},
+  {name:"Diablo",    levels:[10.5,11.28,12.13,13.04,14.02,15.07,16.2,17.42,18.72,20.13,21.64,23.26,25,26.88,28.9,31.06,33.39,35.9,38.59,41.49,44.6,47.94,51.54,55.4,59.56,64.03,68.83,73.99,79.54,85.51,91.92,98.82,106.23,114.2,122.76]},
+  {name:"Maka",      levels:[6.6,7.09,7.62,8.19,8.81,9.47,10.18,10.94,11.77,12.65,13.6,14.62,15.71,16.89,18.16,19.52,20.99,22.56,24.26,26.07,28.03,30.13,32.39,34.82,37.44,40.24,43.26,46.51,50,53.75,57.78,62.11,66.77,71.78,77.16]},
+  {name:"Megume",    levels:[9.15,9.83,10.57,11.36,12.21,13.13,14.12,15.18,16.31,17.54,18.85,20.27,21.79,23.42,25.18,27.07,29.1,31.28,33.63,36.15,38.86,41.78,44.91,48.28,51.9,55.79,59.98,64.48,69.31,74.51,80.1,86.11,92.57,99.51,106.98]},
+  {name:"Meguna",    levels:[25.5,27.41,29.46,31.67,34.05,36.6,39.35,42.3,45.47,48.88,52.55,56.49,60.73,65.29,70.18,75.45,81.11,87.19,93.73,100.76,108.32,116.44,125.17,134.56,144.65,155.5,167.17,179.7,193.18,207.67,223.25,239.99,257.99,277.34,298.15]},
+  {name:"Monarch",   levels:[55.25,59.39,63.85,68.64,73.78,79.32,85.27,91.66,98.54,105.93,113.87,122.41,131.59,141.46,152.07,163.48,175.74,188.92,203.09,218.32,234.69,252.3,271.22,291.56,313.43,336.93,362.2,389.37,418.57,449.96,483.71,519.99,558.99,600.91,645.98]},
+  {name:"Baep",      levels:[12.2,13.12,14.1,15.16,16.29,17.51,18.83,20.24,21.76,23.39,25.14,27.03,29.06,31.24,33.58,36.1,38.8,41.71,44.84,48.2,51.82,55.71,59.89,64.38,69.21,74.4,79.98,85.98,92.43,99.36,106.81,114.82,123.43,132.69,142.64]},
+  {name:"Cha Cha",   levels:[15.4,16.56,17.8,19.13,20.57,22.11,23.77,25.55,27.47,29.53,31.74,34.12,36.68,39.43,42.38,45.56,48.98,52.65,56.6,60.84,65.41,70.31,75.58,81.25,87.34,93.89,100.93,108.5,116.64,125.38,134.78,144.89,155.76,167.44,180]},
+];
+
+function clicksMult(tier) {
+  if (tier === 0) return 1;
+  let m = 1;
+  for (let i=1; i<=Math.min(tier,6); i++) m*=1.1;
+  if (tier>=7) m*=1.15;
+  if (tier>=8) m*=1.15;
+  if (tier>=9) m*=1.15;
+  if (tier>=10) m*=1.2;
+  return m;
+}
+function starsMult(tier) { let m=1; for(let i=0;i<tier;i++) m*=1.1; return m; }
+const EASY_TRIAL_TIERS = [{label:"None",m:1},{label:"III",m:1.1},{label:"VIII",m:1.1*1.15}];
+const MED_TRIAL_TIERS  = [{label:"None",m:1},{label:"III",m:1.1},{label:"VIII",m:1.1*1.15}];
+const DRAGON_TIERS     = [{label:"None",m:1},{label:"III",m:1.1},{label:"VIII",m:1.1*1.15},{label:"XIII",m:1.1*1.15*1.2},{label:"XVIII",m:1.1*1.15*1.2*1.25}];
+const TEMPEST_TIERS    = [{label:"None",m:1},{label:"III",m:1.1},{label:"VIII",m:1.1*1.15},{label:"XIII",m:1.1*1.15*1.2},{label:"XVIII",m:1.1*1.15*1.2*1.25}];
+
+// Sufixos reais do jogo: K M B T Qd Qn Sx Sp Oc No De → BA BB ... BZ CA ...
+const _GAME_SUFFIXES = (() => {
+  const base = ["", "K", "M", "B", "T", "Qd", "Qn", "Sx", "Sp", "Oc", "No", "De"];
+  const list = [];
+  for (let i = base.length - 1; i >= 1; i--)
+    list.push({ v: Math.pow(10, i * 3), s: base[i] });
+  const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let exp = 36;
+  outer: for (let p = 1; p < letras.length; p++) {
+    for (let s = 0; s < letras.length; s++) {
+      list.push({ v: Math.pow(10, exp), s: letras[p] + letras[s] });
+      exp += 3;
+      if (exp > 300) break outer;
+    }
+  }
+  return list.sort((a, b) => b.v - a.v);
+})();
+
+function fmtGame(n) {
+  if (!n || isNaN(n) || n === 0) return "0";
+  if (n < 1000) return n.toFixed(2).replace(".", ",");
+  for (const { v, s } of _GAME_SUFFIXES) {
+    if (n >= v) return (n / v).toFixed(2).replace(".", ",") + " " + s;
+  }
+  return n.toFixed(2).replace(".", ",");
+}
+
+function fmtSci(n) {
+  if (!n || n < 1000) return "";
+  const exp  = Math.floor(Math.log10(n));
+  const base = n / Math.pow(10, exp);
+  return `(${base.toFixed(3).replace(".", ",")} × 10^${exp})`;
+}
+
+function fmt2(n) {
+  if (!n || isNaN(n)) return "1x";
+  if (n < 1000) return n.toFixed(2).replace(".", ",") + "x";
+  for (const { v, s } of _GAME_SUFFIXES) {
+    if (n >= v) {
+      const str = (n / v).toFixed(2).replace(".", ",").replace(/,?0+$/, "").replace(/,$/, "");
+      return str + " " + s + "x";
+    }
+  }
+  return n.toFixed(2).replace(".", ",") + "x";
+}
+
+// ============================================================
+//  PROGRESS BAR HELPER
+// ============================================================
+function updateBar(id, pct) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const capped = Math.min(pct, 100);
+  el.style.width = capped + '%';
+  el.classList.toggle('over', pct > 100);
+  if (pct > 100) {
+    el.style.background = '';  // CSS class handles it
+  } else if (pct > 75) {
+    el.style.background = '#ff7c3a';
+  } else if (pct > 40) {
+    el.style.background = 'var(--gold)';
+  } else {
+    el.style.background = 'var(--teal)';
+  }
+}
+
+// ============================================================
+//  BUILD UI
+// ============================================================
+function buildAccessories() {
+  const c = document.getElementById('accSlots');
+  ACC_SLOTS.forEach((slot, si) => {
+    const d = document.createElement('div');
+    d.className = 'acc-slot';
+    d.innerHTML = `<div class="acc-slot-name">${slot.name}</div>
+    <div class="acc-row">
+      <select id="accItem${si}" onchange="calc()" style="flex:1.5"></select>
+      <select id="accRar${si}" onchange="calc()" style="flex:1"></select>
+      <select id="accEvo${si}" onchange="calc()" title="Evolve (0–5)" style="flex:0.6">
+        <option value="0">Evo 0</option>
+        <option value="1">Evo 1</option>
+        <option value="2">Evo 2</option>
+        <option value="3">Evo 3</option>
+        <option value="4">Evo 4</option>
+        <option value="5">Evo 5</option>
+      </select>
+      <span class="row-mult-badge" id="accMult${si}">1x</span>
+    </div>`;
+    c.appendChild(d);
+
+    const iSel = document.getElementById(`accItem${si}`);
+    slot.items.forEach(ai => {
+      const opt = document.createElement('option');
+      opt.value = ai;
+      opt.textContent = ACCESSORIES[ai].name;
+      iSel.appendChild(opt);
+    });
+    const rSel = document.getElementById(`accRar${si}`);
+    ACC_RARITIES.forEach((r,ri) => {
+      const opt = document.createElement('option');
+      opt.value = ri;
+      opt.textContent = r;
+      rSel.appendChild(opt);
+    });
+  });
+}
+
+function buildGacha() {
+  const c = document.getElementById('gachaRows');
+  GACHA_ITEMS.forEach((g,i) => {
+    const d = document.createElement('div');
+    d.className = 'row';
+    const tiers = Object.keys(g.mults);
+    let opts = tiers.map(t2 => `<option value="${t2}">${t2}</option>`).join('');
+    d.innerHTML = `<span class="row-label">${g.name}</span>
+    <select id="gacha${i}" onchange="calc()">${opts}</select>
+    <span class="row-mult-badge" id="gachaMult${i}">1x</span>`;
+    c.appendChild(d);
+  });
+}
+
+function buildProgressions() {
+  const c = document.getElementById('progRows');
+  c.innerHTML = '';
+  const progKeys = ['fightingStyle', 'demonLord', 'domain', 'system'];
+  const savedVals = [0,1,2,3].map(i => {
+    const el = document.getElementById(`prog${i}`);
+    return el ? el.value : 0;
+  });
+  progKeys.forEach((key, i) => {
+    const d = document.createElement('div');
+    d.className = 'row';
+    d.innerHTML = `<span class="row-label prog-label">${t(key)}</span>
+    <input type="range" id="prog${i}" min="0" max="100" value="${savedVals[i]}" oninput="sync('prog${i}','progV${i}');calc()">
+    <span class="range-val" id="progV${i}">${savedVals[i]}</span>
+    <span class="row-mult-badge" id="progM${i}">1x</span>`;
+    c.appendChild(d);
+  });
+}
+
+function buildSwords() {
+  ['sword1','sword2'].forEach(id => {
+    const sel = document.getElementById(id);
+    SWORDS.forEach((s,i) => {
+      const o = document.createElement('option');
+      o.value = i; o.textContent = s.name;
+      sel.appendChild(o);
+    });
+  });
+  ['enchant1','enchant2'].forEach(id => {
+    const sel = document.getElementById(id);
+    ENCHANTS.forEach((e,i) => {
+      const o = document.createElement('option');
+      o.value = i; o.textContent = e.name;
+      sel.appendChild(o);
+    });
+  });
+}
+
+function buildStats() {
+  const fSel = document.getElementById('fighter');
+  FIGHTERS.forEach((f,i) => { const o=document.createElement('option');o.value=i;o.textContent=f.name;fSel.appendChild(o); });
+  const f2Sel = document.getElementById('fighter2');
+  FIGHTERS.forEach((f,i) => { const o=document.createElement('option');o.value=i;o.textContent=f.name;f2Sel.appendChild(o); });
+  const tSel = document.getElementById('title');
+  TITLES.forEach((tl,i) => { const o=document.createElement('option');o.value=i;o.textContent=tl.name;tSel.appendChild(o); });
+  const aSel = document.getElementById('avatar');
+  AVATARS.forEach((a,i) => { const o=document.createElement('option');o.value=i;o.textContent=a.name;aSel.appendChild(o); });
+  updateAvatarLevels(false);
+}
+
+function updateAvatarLevels(doCalc) {
+  const ai = parseInt(document.getElementById('avatar').value);
+  const a = AVATARS[ai];
+  const lSel = document.getElementById('avatarLevel');
+  lSel.innerHTML = '';
+  a.levels.forEach((lv,i) => {
+    const o=document.createElement('option');
+    o.value=i;
+    o.textContent=`Lv ${i+1} (×${lv})`;
+    lSel.appendChild(o);
+  });
+  if (doCalc) calc();
+}
+
+function buildAchievements() {
+  const c = document.getElementById('achRows');
+  let clicksOpts = '<option value="0">None</option>';
+  for(let i=1;i<=10;i++) clicksOpts += `<option value="${i}">Tier ${['I','II','III','IV','V','VI','VII','VIII','IX','X'][i-1]}</option>`;
+  c.innerHTML += `<div class="ach-row"><span class="ach-label">Clicks</span><select id="achClicks" onchange="calc()">${clicksOpts}</select><span class="row-mult-badge" id="achClicksMult">1x</span></div>`;
+
+  let starsOpts = '<option value="0">None</option>';
+  for(let i=1;i<=6;i++) starsOpts += `<option value="${i}">Tier ${['I','II','III','IV','V','VI'][i-1]}</option>`;
+  c.innerHTML += `<div class="ach-row"><span class="ach-label">Stars Open</span><select id="achStars" onchange="calc()">${starsOpts}</select><span class="row-mult-badge" id="achStarsMult">1x</span></div>`;
+
+  let etOpts = EASY_TRIAL_TIERS.map((t2,i)=>`<option value="${i}">${t2.label}</option>`).join('');
+  c.innerHTML += `<div class="ach-row"><span class="ach-label">Easy Trial</span><select id="achEasy" onchange="calc()">${etOpts}</select><span class="row-mult-badge" id="achEasyMult">1x</span></div>`;
+
+  let mtOpts = MED_TRIAL_TIERS.map((t2,i)=>`<option value="${i}">${t2.label}</option>`).join('');
+  c.innerHTML += `<div class="ach-row"><span class="ach-label">Medium Trial</span><select id="achMed" onchange="calc()">${mtOpts}</select><span class="row-mult-badge" id="achMedMult">1x</span></div>`;
+
+  let ddOpts = DRAGON_TIERS.map((t2,i)=>`<option value="${i}">${t2.label}</option>`).join('');
+  c.innerHTML += `<div class="ach-row"><span class="ach-label">Dragon Defense</span><select id="achDragon" onchange="calc()">${ddOpts}</select><span class="row-mult-badge" id="achDragonMult">1x</span></div>`;
+
+  let tiOpts = TEMPEST_TIERS.map((t2,i)=>`<option value="${i}">${t2.label}</option>`).join('');
+  c.innerHTML += `<div class="ach-row"><span class="ach-label">Tempest Invasion</span><select id="achTempest" onchange="calc()">${tiOpts}</select><span class="row-mult-badge" id="achTempestMult">1x</span></div>`;
+}
+
+function buildUnits() {
+  const maxUnits = isP2W ? 9 : 7;
+  document.getElementById('unitsCardTitle').textContent = t('unitsTitle', maxUnits);
+  const c = document.getElementById('unitSlots');
+  // Save values before rebuild
+  const saved = [];
+  for(let i=0;i<9;i++){
+    const el = document.getElementById(`unitPow${i}`);
+    saved[i] = el ? el.value : '0';
+  }
+  c.innerHTML = '';
+  for(let i=0;i<maxUnits;i++) {
+    const d = document.createElement('div');
+    d.className = 'unit-row';
+    d.innerHTML = `<span class="unit-num" data-unit-idx="${i}">${t('unitN', i)}</span>
+    <input type="number" id="unitPow${i}" min="0" value="${saved[i]||0}" placeholder="Power mult" oninput="calc()" style="flex:1;min-width:0;">
+    <span class="unit-badge" id="unitB${i}">0</span>`;
+    c.appendChild(d);
+  }
+}
+
+// ============================================================
+//  MODE
+// ============================================================
+let isP2W = true;
+
+function setMode(p2w) {
+  isP2W = p2w;
+  document.getElementById('btnP2W').classList.toggle('active', p2w);
+  document.getElementById('btnF2P').classList.toggle('active', !p2w);
+  document.getElementById('row2xPower').style.display  = p2w ? '' : 'none';
+  document.getElementById('rowVip').style.display       = p2w ? '' : 'none';
+  document.getElementById('sword2Row').style.display    = p2w ? '' : 'none';
+  document.getElementById('enchant2Row').style.display  = p2w ? '' : 'none';
+  document.getElementById('fighter2Row').style.display  = p2w ? '' : 'none';
+  buildUnits();
+  calc();
+}
+
+// ============================================================
+//  HELPERS
+// ============================================================
+function sync(rangeId, displayId) {
+  const v = document.getElementById(rangeId).value;
+  document.getElementById(displayId).textContent = v;
+}
+function getVal(id) { const el=document.getElementById(id); return el ? (parseFloat(el.value)||0) : 0; }
+function getInt(id) { const el=document.getElementById(id); return el ? (parseInt(el.value)||0) : 0; }
+function getChk(id) { const el=document.getElementById(id); return el ? el.checked : false; }
+function setMult(id, v) { const el=document.getElementById(id); if(el) el.textContent = fmt2(v); }
+
+// ============================================================
+//  CALCULATION
+// ============================================================
+function calc() {
+  let total = BASE_CLICK;
+
+  const awLvl = getInt('awakening');
+  const awMult = AWAKENINGS[awLvl] || 1;
+  setMult('awakeMult', awMult);
+  total *= awMult;
+
+  const lvl = getInt('level');
+  const lvlMult = lvl > 0 ? 1 + 0.05 * (lvl - 1) : 1;
+  setMult('levelMult', lvlMult);
+  total *= lvlMult;
+
+  const idx = getInt('index');
+  const idxMult = Math.trunc((INDEX_MULT[idx] || 1) * 100) / 100;
+  setMult('indexMult', idxMult);
+  total *= idxMult;
+
+  setMult('multAwakeLevel', awMult * lvlMult * idxMult);
+  setTip('awakeLevel', 'Awakening & Level', [
+    ['Awakening', fmt2(awMult)],
+    ['Level', fmt2(lvlMult)],
+    ['Index', fmt2(idxMult)],
+  ], fmt2(awMult * lvlMult * idxMult));
+
+  let accTotal = 1;
+  ACC_SLOTS.forEach((_,si) => {
+    const itemIdx = getInt(`accItem${si}`);
+    const rarIdx  = getInt(`accRar${si}`);
+    const evo     = getInt(`accEvo${si}`);
+    const base    = ACCESSORIES[itemIdx].mult[rarIdx] || 1;
+    const evoMult = 1 + Math.min(evo * 0.05, 0.25);
+    const m       = base * evoMult;
+    setMult(`accMult${si}`, m);
+    accTotal *= m;
+  });
+  accTotal = Math.trunc(accTotal * 100) / 100;
+  setMult('multAcc', accTotal);
+  total *= accTotal;
+  setTip('accessories', 'Accessories', ACC_SLOTS.map((_,si) => {
+    const itemIdx = getInt(`accItem${si}`);
+    const rarIdx  = getInt(`accRar${si}`);
+    const evo     = getInt(`accEvo${si}`);
+    const base    = ACCESSORIES[itemIdx]?.mult[rarIdx] || 1;
+    const m       = base * (1 + Math.min(evo * 0.05, 0.25));
+    return [ACC_SLOTS[si].name, fmt2(m)];
+  }), fmt2(accTotal));
+
+  let gachaTotal = 1;
+  GACHA_ITEMS.forEach((g,i) => {
+    const tier = document.getElementById(`gacha${i}`).value;
+    const m = g.mults[tier] || 1;
+    setMult(`gachaMult${i}`, m);
+    gachaTotal *= m;
+  });
+  setMult('multGacha', gachaTotal);
+  total *= gachaTotal;
+  setTip('gacha', 'Gacha', GACHA_ITEMS.map((g,i) => {
+    const m = g.mults[document.getElementById(`gacha${i}`).value] || 1;
+    return [g.name, fmt2(m)];
+  }), fmt2(gachaTotal));
+
+  let progTotal = 1;
+  [PROG_FS, PROG_DL, PROG_DOMAIN, PROG_SYS].forEach((tbl,i) => {
+    const lvl2 = getInt(`prog${i}`);
+    const m = lvl2 > 0 ? (tbl[lvl2] || 1) : 1;
+    setMult(`progM${i}`, m);
+    progTotal *= m;
+  });
+  setMult('multProg', progTotal);
+  total *= progTotal;
+  setTip('progressions', 'Progressions', [
+    [t('fightingStyle'), fmt2(getInt('prog0') > 0 ? (PROG_FS[getInt('prog0')] || 1) : 1)],
+    [t('demonLord'),     fmt2(getInt('prog1') > 0 ? (PROG_DL[getInt('prog1')] || 1) : 1)],
+    [t('domain'),        fmt2(getInt('prog2') > 0 ? (PROG_DOMAIN[getInt('prog2')] || 1) : 1)],
+    [t('system'),        fmt2(getInt('prog3') > 0 ? (PROG_SYS[getInt('prog3')] || 1) : 1)],
+  ], fmt2(progTotal));
+
+  const s1 = SWORDS[getInt('sword1')].mult;
+  const e1 = ENCHANTS[getInt('enchant1')].mult;
+  const s2 = isP2W ? SWORDS[getInt('sword2')].mult : 1;
+  const e2 = isP2W ? ENCHANTS[getInt('enchant2')].mult : 1;
+  setMult('s1Mult', s1);
+  setMult('e1Mult', e1);
+  setMult('s2Mult', s2);
+  setMult('e2Mult', e2);
+  setMult('multSwords', s1*e1*s2*e2);
+  total *= s1 * e1 * s2 * e2;
+  setTip('swords', 'Swords', [
+    [t('sword1'), fmt2(s1)],
+    [t('enchant1'), fmt2(e1)],
+    ...(isP2W ? [[t('sword2'), fmt2(s2)], [t('enchant2'), fmt2(e2)]] : []),
+  ], fmt2(s1*e1*s2*e2));
+
+  const fighterMult = FIGHTERS[getInt('fighter')].mult;
+  const fighter2Mult = isP2W ? FIGHTERS[getInt('fighter2')].mult : 1;
+  const titleMult = TITLES[getInt('title')].mult;
+  const avatarIdx = getInt('avatar');
+  const avatarLevelIdx = getInt('avatarLevel');
+  const avatarMult = AVATARS[avatarIdx].levels[avatarLevelIdx] || 1;
+  setMult('fighterMult', fighterMult);
+  setMult('fighter2Mult', fighter2Mult);
+  setMult('titleMult', titleMult);
+  setMult('avatarMult', avatarMult);
+  setMult('multStats', fighterMult * fighter2Mult * titleMult * avatarMult);
+  total *= fighterMult * fighter2Mult * titleMult * avatarMult;
+  setTip('stats', 'Stats', [
+    [t('fighter'),    fmt2(fighterMult)],
+    ...(isP2W ? [[t('fighter2'), fmt2(fighter2Mult)]] : []),
+    [t('titleLabel'), fmt2(titleMult)],
+    [t('avatar'),     fmt2(avatarMult)],
+  ], fmt2(fighterMult * fighter2Mult * titleMult * avatarMult));
+
+  const gp2x = (isP2W && getChk('gp2x')) ? 2 : 1;
+  const gpVip = (isP2W && getChk('gpVip')) ? 1.25 : 1;
+  const followDevsMult = getChk('followDevs') ? 1.520875 : 1;
+  const potIII   = getChk('potIII')   ? 2.5 : 1;
+  const potBig   = getChk('potBig')   ? 2   : 1;
+  const potSmall = getChk('potSmall') ? 1.5 : 1;
+  const sqCount = getInt('sideQuests');
+  const sqMult = Math.trunc(Math.pow(1.5, sqCount) * 100) / 100;
+  setMult('sqMult', sqMult);
+  setMult('multGamepass', gp2x * gpVip * potIII * potBig * potSmall * sqMult * followDevsMult);
+  total *= gp2x * gpVip * potIII * potBig * potSmall * sqMult * followDevsMult;
+  setTip('gamepasses', 'Gamepasses', [
+    ...(isP2W ? [['2x Power', fmt2(gp2x)], ['VIP', fmt2(gpVip)]] : []),
+    [t('potion3'), fmt2(potIII)],
+    [t('potion2'), fmt2(potBig)],
+    [t('potion1'), fmt2(potSmall)],
+    [t('sideQuestsLabel'), fmt2(sqMult)],
+    ['Follow all Devs', fmt2(followDevsMult)],
+  ], fmt2(gp2x * gpVip * potIII * potBig * potSmall * sqMult * followDevsMult));
+
+  const skillStartChk = getChk('skillStart');
+  const skillPow = getInt('skillPower');
+  const skillIns = getInt('skillInsane');
+  const skillW2M = 1 + (skillStartChk ? 0.05 : 0) + skillPow * 0.15 + skillIns * 0.20;
+  const spM  = 1 + skillPow * 0.15;
+  const siM  = 1 + skillIns * 0.20;
+  setMult('spMult', spM);
+  setMult('siMult', siM);
+  setMult('multSkill', skillW2M);
+  total *= skillW2M;
+  setTip('skill', 'Skill Tree (W2)', [
+    [t('skillStart'),   fmt2(1 + (skillStartChk ? 0.05 : 0))],
+    [t('powerSkill'),   fmt2(spM)],
+    [t('insanePower'),  fmt2(siM)],
+  ], fmt2(skillW2M));
+
+  const skillStartW9Chk = getChk('skillStartW9');
+  const skillW9Lvl = getInt('skillPowerW9');
+  const o = [0, 0.2, 0.4, 0.6, 0.8 ,1.05 ,1.3, 1.55 ,1.8 ,2.1 ,2.4]
+  const skillW9M = 1 + (skillStartW9Chk ? 0.1 : 0) + o[skillW9Lvl];
+  const spW9M = 1 + o[skillW9Lvl];
+  setMult('spW9Mult', spW9M);
+  setMult('multSkillW9', skillW9M);
+  total *= skillW9M;
+  setTip('skillW9', 'Skill Tree (World 9)', [
+    [t('skillStartW9'), fmt2(1 + (skillStartW9Chk ? 0.1 : 0))],
+    [t('powerSkillW9'), fmt2(spW9M)],
+  ], fmt2(skillW9M));
+
+  const trialLvl = getInt('trialUpg');
+  const trialM = trialLvl > 0 ? 1 + trialLvl * 0.1 : 1;
+  const tempestLvl = getInt('tempestUpg');
+  const tempestM = tempestLvl > 0 ? 1 + tempestLvl * 0.1 : 1;
+  setMult('tuMult', trialM);
+  setMult('teuMult', tempestM);
+  setMult('multUpgrades', trialM * tempestM);
+  total *= trialM * tempestM;
+  setTip('upgrades', 'Trial & Tempest', [
+    [t('trialUpgLabel'),   fmt2(trialM)],
+    [t('tempestUpgLabel'), fmt2(tempestM)],
+  ], fmt2(trialM * tempestM));
+
+  const achClicks = clicksMult(getInt('achClicks'));
+  const achStars = starsMult(getInt('achStars'));
+  const achEasy = EASY_TRIAL_TIERS[getInt('achEasy')].m;
+  const achMed = MED_TRIAL_TIERS[getInt('achMed')].m;
+  const achDragon = DRAGON_TIERS[getInt('achDragon')].m;
+  const achTempest = TEMPEST_TIERS[getInt('achTempest')].m;
+  setMult('achClicksMult', achClicks);
+  setMult('achStarsMult', achStars);
+  setMult('achEasyMult', achEasy);
+  setMult('achMedMult', achMed);
+  setMult('achDragonMult', achDragon);
+  setMult('achTempestMult', achTempest);
+  const achTotal = Math.trunc(achClicks * achStars * achEasy * achMed * achDragon * achTempest * 100) / 100;
+  setMult('multAch', achTotal);
+  total *= achTotal;
+  setTip('achievements', 'Achievements', [
+    ['Clicks',          fmt2(achClicks)],
+    ['Stars Open',      fmt2(achStars)],
+    ['Easy Trial',      fmt2(achEasy)],
+    ['Medium Trial',    fmt2(achMed)],
+    ['Dragon Defense',  fmt2(achDragon)],
+    ['Tempest Invasion',fmt2(achTempest)],
+  ], fmt2(achTotal));
+
+  const maxUnits = isP2W ? 9 : 7;
+  let unitsBase = 0;
+  for(let i=0;i<maxUnits;i++) {
+    const el = document.getElementById(`unitPow${i}`);
+    const v = el ? (parseFloat(el.value)||0) : 0;
+    const badge = document.getElementById(`unitB${i}`);
+    if(badge) badge.textContent = v > 0 ? fmt2(v) : '0';
+    unitsBase += v;
+  }
+  const unitTotal = unitsBase > 0 ? unitsBase : 1;
+  setMult('multUnits', unitTotal);
+  total *= unitsBase > 0 ? unitTotal : 1;
+  const unitRows = [];
+  for(let i=0;i<maxUnits;i++) {
+    const v = parseFloat(document.getElementById(`unitPow${i}`)?.value||0)||0;
+    if(v > 0) unitRows.push([t('unitN',i), fmt2(v)]);
+  }
+  setTip('units', 'Units', unitRows.length ? unitRows : [['—','—']], fmt2(unitTotal));
+
+  // Display
+  document.getElementById('resultDisplay').textContent = fmtGame(total);
+  document.getElementById('resultRaw').textContent = fmtSci(total);
+
+  // Comparison limits
+  const F2P_PLAUS = 5.712e37;
+  const F2P_MAX   = 9.997e37;
+  const P2W_PLAUS = 2.40e39;
+  const P2W_MAX   = 4.22e39;
+  const f2pPct    = (total / F2P_PLAUS) * 100;
+  const f2pMaxPct = (total / F2P_MAX)   * 100;
+  const p2wPct    = (total / P2W_PLAUS) * 100;
+  const p2wMaxPct = (total / P2W_MAX)   * 100;
+
+  // Update limit value labels
+  const f2pLimitEl = document.getElementById('f2pLimitVal');
+  const f2pMaxLimitEl = document.getElementById('f2pMaxLimitVal');
+  const p2wLimitEl = document.getElementById('p2wLimitVal');
+  const p2wMaxLimitEl = document.getElementById('p2wMaxLimitVal');
+  if (f2pLimitEl) f2pLimitEl.textContent = fmtGame(F2P_PLAUS);
+  if (f2pMaxLimitEl) f2pMaxLimitEl.textContent = fmtGame(F2P_MAX);
+  if (p2wLimitEl) p2wLimitEl.textContent = fmtGame(P2W_PLAUS);
+  if (p2wMaxLimitEl) p2wMaxLimitEl.textContent = fmtGame(P2W_MAX);
+
+  const ofLim = t('ofLimit');
+  function pctStr(p) { return p >= 0.01 ? `${p >= 99.9 ? '100' : p.toFixed(2)}% ${ofLim}` : ''; }
+  document.getElementById('f2pPct').textContent    = pctStr(f2pPct);
+  document.getElementById('f2pMaxPct').textContent = pctStr(f2pMaxPct);
+  document.getElementById('p2wPct').textContent    = pctStr(p2wPct);
+  document.getElementById('p2wMaxPct').textContent = pctStr(p2wMaxPct);
+
+  // Update progress bars
+  updateBar('f2pBar',    f2pPct);
+  updateBar('f2pMaxBar', f2pMaxPct);
+  updateBar('p2wBar',    p2wPct);
+  updateBar('p2wMaxBar', p2wMaxPct);
+
+  // Update breakdown panel
+  updateBreakdown([
+    { icon:'⚡', name:'Awakening & Level', mult: awMult * lvlMult * idxMult },
+    { icon:'🎒', name:'Accessories',       mult: accTotal },
+    { icon:'🎲', name:'Gacha',             mult: gachaTotal },
+    { icon:'📈', name:'Progressions',      mult: progTotal },
+    { icon:'🗡️', name:'Swords',            mult: s1*e1*s2*e2 },
+    { icon:'👤', name:'Stats',             mult: fighterMult * fighter2Mult * titleMult * avatarMult },
+    { icon:'💳', name:'Gamepasses',        mult: gp2x * gpVip * potIII * potBig * potSmall * sqMult * followDevsMult },
+    { icon:'🌳', name:'Skill Tree (W2)',  mult: skillW2M },
+    { icon:'🌲', name:'Skill Tree (World 9)',  mult: skillW9M },
+    { icon:'🏆', name:'Trial & Tempest',   mult: trialM * tempestM },
+    { icon:'🏅', name:'Achievements',      mult: achTotal },
+    { icon:'🤖', name:'Units',             mult: unitsBase > 0 ? unitTotal : 1 },
+  ], total);
+}
+
+// ============================================================
+//  BREAKDOWN
+// ============================================================
+let breakdownOpen = false;
+
+function toggleBreakdown() {
+  breakdownOpen = !breakdownOpen;
+  document.getElementById('breakdownBody').classList.toggle('open', breakdownOpen);
+  document.getElementById('breakdownHeader').classList.toggle('open', breakdownOpen);
+  document.getElementById('breakdownChevron').classList.toggle('open', breakdownOpen);
+}
+
+function getSectionMaxes(p2w) {
+  const avatarMax = AVATARS[16].levels[AVATARS[16].levels.length - 1]; // Meguna lv35
+  return {
+    awakeLevel: AWAKENINGS[36] * (1 + 0.05 * 49) * (Math.trunc(INDEX_MULT[9] * 100) / 100),
+    accessories: (2.75*1.25) * (2.75*1.25) * (2.88*1.25) * (3.0*1.25) * (2.75*1.25),
+    gacha:       10 * 10 * 4 * 10 * 10 * 10 * 10,  // 7 items all Secret
+    progressions: PROG_FS[100] * PROG_DL[100] * PROG_DOMAIN[100] * PROG_SYS[100],
+    swords: p2w
+      ? SWORDS[7].mult * ENCHANTS[4].mult * SWORDS[7].mult * ENCHANTS[4].mult
+      : SWORDS[7].mult * ENCHANTS[4].mult,
+    stats: p2w
+      ? FIGHTERS[7].mult * FIGHTERS[7].mult * TITLES[4].mult * AVATARS[17].levels[AVATARS[17].levels.length-1]
+      : FIGHTERS[7].mult               * TITLES[4].mult * AVATARS[17].levels[AVATARS[17].levels.length-1],
+    gamepasses: p2w
+      ? 2 * 1.25 * 2.5 * 2 * 1.5 * (Math.trunc(Math.pow(1.5, 5) * 100) / 100)
+      :           1 * 2.5 * 2 * 1.5 * (Math.trunc(Math.pow(1.5, 5) * 100) / 100),
+    skillTree:  2.4,
+    skillTreeW9: 3.5,
+    upgrades:   3.0 * 3.0,
+    achievements: clicksMult(10) * starsMult(6) *
+      EASY_TRIAL_TIERS[EASY_TRIAL_TIERS.length - 1].m *
+      MED_TRIAL_TIERS [MED_TRIAL_TIERS.length  - 1].m *
+      DRAGON_TIERS    [DRAGON_TIERS.length      - 1].m *
+      TEMPEST_TIERS   [TEMPEST_TIERS.length     - 1].m,
+    units: (p2w ? 9 : 7) * 65920,
+  };
+}
+
+function updateBreakdown(sections, total) {
+  const body = document.getElementById('breakdownBody');
+  if (!body) return;
+
+  const maxes = getSectionMaxes(isP2W);
+  const maxKeys = ['awakeLevel','accessories','gacha','progressions','swords',
+                   'stats','gamepasses','skillTree','skillTreeW9','upgrades','achievements','units'];
+
+  const logTotal = Math.log(Math.max(total, 1));
+
+  const rows = sections.map((s, i) => {
+    const sMax     = maxes[maxKeys[i]] ?? s.mult;
+    const curr     = Math.max(s.mult, 1);
+    const cap      = Math.max(sMax, 1);
+    const logM     = Math.log(curr);
+    const logMax   = Math.log(cap);
+    // % of total power this section provides (log scale)
+    const contribPct = logTotal > 0 ? (logM / logTotal) * 100 : 0;
+    // % progress toward this section's own max (log scale)
+    const toMaxPct   = logMax  > 0 ? Math.min((logM / logMax) * 100, 100) : 100;
+    const atMax      = curr >= cap * 0.9999;
+    const missing    = atMax ? null : cap / curr;   // how many times more to reach max
+    return { ...s, sMax, contribPct: Math.max(0, contribPct), toMaxPct, atMax, missing };
+  }).sort((a, b) => b.contribPct - a.contribPct);
+
+  const topContrib = rows[0]?.contribPct || 1;
+
+  const legend = `
+    <div class="bd-legend">
+      <span><span class="dot" style="background:var(--purple2)"></span>${t('bdCurrent')}</span>
+      <span><span class="dot" style="background:rgba(255,255,255,0.12)"></span>${t('bdRemaining')}</span>
+      <span style="color:var(--teal)">✓ = ${t('bdAtMax')}</span>
+    </div>
+    <div class="bd-col-header">
+      <span class="bd-col-section">${t('bdSection')}</span>
+      <span class="bd-col-bar">${t('bdProgress')}</span>
+      <span class="bd-col-contrib">${t('bdContrib')}</span>
+      <span class="bd-col-mult">${t('bdMult')}</span>
+    </div>`;
+
+  const rowsHtml = rows.map((r, i) => {
+    const isTop   = i === 0 && !r.atMax;
+    const classes = ['bd-row', isTop ? 'top' : '', r.atMax ? 'at-max' : ''].filter(Boolean).join(' ');
+    const contribDisplay = r.contribPct >= 0.05 ? r.contribPct.toFixed(1) + '%' : '<0.1%';
+
+    // Two bars: filled = progress to max, ghost = remainder
+    const fillW = r.toMaxPct.toFixed(1);
+    const restW = (100 - r.toMaxPct).toFixed(1);
+
+    const missingHtml = r.atMax
+      ? `<span class="bd-missing at-max">✓ MAX</span>`
+      : `<span class="bd-missing">${t('bdNeed')} ×${fmt2(r.missing)}</span>`;
+
+    return `
+      <div class="${classes}">
+        <span class="bd-name">${r.icon} ${r.name}</span>
+        <div class="bd-bar-col">
+          <div class="bd-bar-bg" style="position:relative;">
+            <div class="bd-bar-fill mbar" style="width:100%;position:absolute;top:0;left:0;"></div>
+            <div class="bd-bar-fill curr" style="width:${fillW}%;position:relative;z-index:1;"></div>
+          </div>
+          ${missingHtml}
+        </div>
+        <span class="bd-pct">${contribDisplay}</span>
+        <div class="bd-mult-col">
+          <span class="bd-mult">${fmt2(r.mult)}</span>
+          <span class="bd-max-val">max ${fmt2(r.sMax)}</span>
+        </div>
+      </div>`;
+  }).join('');
+
+  body.innerHTML = legend + rowsHtml + `
+    <div class="bd-divider"></div>
+    <div class="bd-row">
+      <span class="bd-name" style="color:var(--text);font-weight:700;">⚡ Total</span>
+      <div class="bd-bar-col">
+        <div class="bd-bar-bg"><div class="bd-bar-fill curr" style="width:100%;background:var(--teal);"></div></div>
+        <span class="bd-missing" style="color:var(--muted);">sum of all sections</span>
+      </div>
+      <span class="bd-pct" style="color:var(--teal);">100%</span>
+      <div class="bd-mult-col">
+        <span class="bd-mult" style="color:var(--teal);">${fmtGame(total)}</span>
+        <span class="bd-max-val" style="color:var(--muted);"></span>
+      </div>
+    </div>`;
+}
+
+// ============================================================
+//  TOOLTIP ENGINE
+// ============================================================
+(function() {
+  const popup = document.getElementById('tip-popup');
+  let hideTimer;
+
+  document.addEventListener('mouseover', e => {
+    const badge = e.target.closest('.card-mult[data-tip]');
+    if (!badge) return;
+    clearTimeout(hideTimer);
+    const key = badge.dataset.tip;
+    const data = window._tipData && window._tipData[key];
+    if (!data) return;
+
+    let html = `<div class="tip-title">${data.title}</div>`;
+    data.rows.forEach(([label, val]) => {
+      html += `<div class="tip-row"><span>${label}</span><span>${val}</span></div>`;
+    });
+    html += `<div class="tip-total"><span>Total</span><span>${data.total}</span></div>`;
+    popup.innerHTML = html;
+
+    const r = badge.getBoundingClientRect();
+    popup.style.display = 'block';
+    const pw = popup.offsetWidth, ph = popup.offsetHeight;
+    let top = r.bottom + 6;
+    let left = r.right - pw;
+    if (left < 6) left = 6;
+    if (top + ph > window.innerHeight - 8) top = r.top - ph - 6;
+    popup.style.top  = top  + 'px';
+    popup.style.left = left + 'px';
+  });
+
+  document.addEventListener('mouseout', e => {
+    if (!e.target.closest('.card-mult[data-tip]')) return;
+    hideTimer = setTimeout(() => { popup.style.display = 'none'; }, 120);
+  });
+})();
+
+function setTip(key, title, rows, total) {
+  if (!window._tipData) window._tipData = {};
+  window._tipData[key] = { title, rows, total };
+}
+
+// ============================================================
+//  SET MAX
+// ============================================================
+function setMax() {
+  // Respect current mode (F2P or P2W) — do NOT force P2W
+
+  // ── Awakening / Level / Index ──
+  const awEl = document.getElementById('awakening');
+  awEl.value = awEl.max; sync('awakening', 'awakeVal');
+
+  const lvlEl = document.getElementById('level');
+  lvlEl.value = lvlEl.max; sync('level', 'levelVal');
+
+  const idxEl = document.getElementById('index');
+  idxEl.value = idxEl.max; sync('index', 'indexVal');
+
+  // ── Accessories (best item per slot at Secret rarity + evolve 5) ──
+  // Back  → Slime Wings (idx 2)  → Secret (rarity 7)
+  document.getElementById('accItem0').value = '2';
+  document.getElementById('accRar0').value  = '7';
+  document.getElementById('accEvo0').value  = '5';
+  // Body  → Volcano Cape (idx 4) → Secret
+  document.getElementById('accItem1').value = '4';
+  document.getElementById('accRar1').value  = '7';
+  document.getElementById('accEvo1').value  = '5';
+  // Head  → Igros Helmet (idx 14) → Secret
+  document.getElementById('accItem2').value = '14';
+  document.getElementById('accRar2').value  = '7';
+  document.getElementById('accEvo2').value  = '5';
+  // Mask  → Panda Mask (idx 12) → Secret
+  document.getElementById('accItem3').value = '12';
+  document.getElementById('accRar3').value  = '7';
+  document.getElementById('accEvo3').value  = '5';
+  // Waist → Sorcerer Belt (idx 10) → Secret
+  document.getElementById('accItem4').value = '10';
+  document.getElementById('accRar4').value  = '7';
+  document.getElementById('accEvo4').value  = '5';
+
+  // ── Gacha: all Secret ──
+  for (let i = 0; i < GACHA_ITEMS.length; i++) {
+    document.getElementById(`gacha${i}`).value = 'Secret';
+  }
+
+  // ── Progressions: level 100 ──
+  for (let i = 0; i < 4; i++) {
+    const el = document.getElementById(`prog${i}`);
+    if (el) { el.value = 100; sync(`prog${i}`, `progV${i}`); }
+  }
+
+  // ── Swords: Yoru (idx 7) + Ancestral Domain enchant (idx 4) ──
+  document.getElementById('sword1').value   = '7';
+  document.getElementById('enchant1').value = '4';
+  if (isP2W) {
+    document.getElementById('sword2').value   = '7';
+    document.getElementById('enchant2').value = '4';
+  }
+
+  // ── Stats: Kenpachi (idx 7), King of Curses title (idx 4), Meguna max level ──
+  document.getElementById('fighter').value  = '7';
+  if (isP2W) document.getElementById('fighter2').value = '7';
+  document.getElementById('title').value    = '4';
+  document.getElementById('avatar').value   = '17'; // Monarch
+  updateAvatarLevels(false);
+  // Monarch has 35 levels (0–34); pick the last one
+  const avLvlSel = document.getElementById('avatarLevel');
+  avLvlSel.value = String(avLvlSel.options.length - 1);
+
+  // ── Gamepasses / Potions / Side Quests ──
+  if (isP2W) {
+    document.getElementById('gp2x').checked  = true;
+    document.getElementById('gpVip').checked = true;
+  }
+  document.getElementById('potIII').checked  = true;
+  document.getElementById('potBig').checked  = true;
+  document.getElementById('potSmall').checked= true;
+  const sqEl = document.getElementById('sideQuests');
+  sqEl.value = sqEl.max; sync('sideQuests', 'sqVal');
+
+  // ── Skill Tree W2 ──
+  document.getElementById('skillStart').checked = true;
+  document.getElementById('followDevs').checked = true;
+  const spEl = document.getElementById('skillPower');
+  spEl.value = spEl.max; sync('skillPower', 'spVal');
+  const siEl = document.getElementById('skillInsane');
+  siEl.value = siEl.max; sync('skillInsane', 'siVal');
+
+  // ── Skill Tree W9 ──
+  const spW9El = document.getElementById('skillPowerW9');
+  spW9El.value = spW9El.max; sync('skillPowerW9', 'spW9Val');
+  document.getElementById('skillStartW9').checked = true;
+
+  // ── Trial & Tempest Upgrades ──
+  const tuEl  = document.getElementById('trialUpg');
+  tuEl.value  = tuEl.max;  sync('trialUpg',   'tuVal');
+  const teuEl = document.getElementById('tempestUpg');
+  teuEl.value = teuEl.max; sync('tempestUpg', 'teuVal');
+
+  // ── Achievements (max tiers) ──
+  document.getElementById('achClicks').value  = '10'; // Tier X
+  document.getElementById('achStars').value   = '6';  // Tier VI
+  document.getElementById('achEasy').value    = String(EASY_TRIAL_TIERS.length - 1);
+  document.getElementById('achMed').value     = String(MED_TRIAL_TIERS.length  - 1);
+  document.getElementById('achDragon').value  = String(DRAGON_TIERS.length     - 1);
+  document.getElementById('achTempest').value = String(TEMPEST_TIERS.length    - 1);
+
+  // ── Units: 6 slots (F2P) or 8 slots (P2W) ──
+  const maxU = isP2W ? 9 : 7;
+  for (let i = 0; i < maxU; i++) {
+    const el = document.getElementById(`unitPow${i}`);
+    if (el) el.value = '65920';
+  }
+
+  calc();
+}
+
+// ============================================================
+//  SHARE BUILD VIA URL
+// ============================================================
+// ── Compact build serialization (base64 URL-safe) ────────────────
+const RARITY_KEYS = ['None','Common','Uncommon','Rare','Epic','Legendary','Mythical','Secret'];
+
+// ── Binary bit-pack serialization v2 ─────────────────────────────
+// Packs all fields into minimum bits → ~54 bytes → 72 base64 chars (fixed size).
+// URL param ?b= auto-detects v2 binary (marker 0xB2) vs v1 text (backward compat).
+
+class BitWriter {
+  constructor() { this.bytes = []; this.cur = 0; this.bits = 0; }
+  w(val, n) {
+    val = val >>> 0;
+    for (let i = n - 1; i >= 0; i--) {
+      this.cur = (this.cur << 1) | ((val >> i) & 1);
+      if (++this.bits === 8) { this.bytes.push(this.cur); this.cur = 0; this.bits = 0; }
+    }
+  }
+  done() { if (this.bits > 0) this.bytes.push(this.cur << (8 - this.bits)); return this.bytes; }
+}
+class BitReader {
+  constructor(bytes) { this.bytes = bytes; this.pos = 0; this.bit = 0; }
+  r(n) {
+    let val = 0;
+    for (let i = 0; i < n; i++) {
+      val = (val << 1) | ((this.bytes[this.pos] >> (7 - this.bit)) & 1);
+      if (++this.bit === 8) { this.bit = 0; this.pos++; }
+    }
+    return val;
+  }
+}
+function _wf32(bw, val) {
+  const b = new Uint8Array(new Float32Array([val]).buffer);
+  // Float32Array is native-endian; re-read as big-endian for portability
+  const dv = new DataView(new ArrayBuffer(4));
+  dv.setFloat32(0, val, false);
+  bw.w(dv.getUint8(0),8); bw.w(dv.getUint8(1),8); bw.w(dv.getUint8(2),8); bw.w(dv.getUint8(3),8);
+}
+function _rf32(br) {
+  const dv = new DataView(new ArrayBuffer(4));
+  dv.setUint8(0,br.r(8)); dv.setUint8(1,br.r(8)); dv.setUint8(2,br.r(8)); dv.setUint8(3,br.r(8));
+  return dv.getFloat32(0, false);
+}
+function _toB64url(bytes) {
+  let s = ''; for (const b of bytes) s += String.fromCharCode(b);
+  return btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+}
+function _fromB64url(str) {
+  const pad = (4 - str.length % 4) % 4;
+  const s = atob(str.replace(/-/g,'+').replace(/_/g,'/') + '='.repeat(pad));
+  return Array.from(s, c => c.charCodeAt(0));
+}
+
+function serializeBuild() {
+  const gi = id => (parseInt(document.getElementById(id)?.value || '0') || 0);
+  const cb = id =>  document.getElementById(id)?.checked ? 1 : 0;
+  const gf = id => parseFloat(document.getElementById(id)?.value || '0') || 0;
+
+  const bw = new BitWriter();
+  bw.w(0xB4, 8); // version marker
+
+  bw.w(isP2W ? 1 : 0, 1);
+  bw.w(gi('awakening')-1, 6);  // 6 bits: 1-64 → 0-63
+  bw.w(gi('level')-1,     6);  // 1-50 → 0-49
+  bw.w(gi('index'),       4);  // 0-8
+
+  for (let i = 0; i < 5; i++) {
+    bw.w(gi(`accItem${i}`), 4);
+    bw.w(gi(`accRar${i}`),  3);
+    bw.w(gi(`accEvo${i}`),  3); // evolve grade 0-5
+  }
+  for (let i = 0; i < GACHA_ITEMS.length; i++) {
+    bw.w(Math.max(0, RARITY_KEYS.indexOf(document.getElementById(`gacha${i}`)?.value || 'None')), 3);
+  }
+  for (let i = 0; i < 4; i++) bw.w(gi(`prog${i}`), 7); // 0-100
+
+  bw.w(gi('sword1'),3);  bw.w(gi('enchant1'),3); bw.w(gi('sword2'),3);  bw.w(gi('enchant2'),3);
+  bw.w(gi('fighter'),3); bw.w(gi('fighter2'),3); bw.w(gi('title'),3);
+  bw.w(gi('avatar'),5);  bw.w(gi('avatarLevel'),6);
+
+  bw.w(cb('gp2x'),1); bw.w(cb('gpVip'),1); bw.w(cb('potBig'),1); bw.w(cb('potSmall'),1);
+  bw.w(gi('sideQuests'),3);
+  bw.w(cb('skillStart'),1); bw.w(gi('skillPower'),3); bw.w(gi('skillInsane'),2);
+  bw.w(cb('skillStartW9'),1); bw.w(gi('skillPowerW9'),4);
+  bw.w(gi('trialUpg'),5);   bw.w(gi('tempestUpg'),5); // 5 bits: 0-20
+  bw.w(gi('achClicks'),4);  bw.w(gi('achStars'),3);
+  bw.w(gi('achEasy'),2);    bw.w(gi('achMed'),2);
+  bw.w(gi('achDragon'),3);  bw.w(gi('achTempest'),3);
+
+  for (let i = 0; i < 9; i++) _wf32(bw, gf(`unitPow${i}`)); // 9 units (P2W has 9)
+
+  bw.w(cb('potIII'),     1);
+  bw.w(cb('followDevs'), 1);
+
+  return _toB64url(bw.done());
+}
+
+function deserializeBuild(encoded) {
+  try {
+    const bytes = _fromB64url(encoded);
+    // Detect format: v2 binary starts with marker 0xB2; v1 text has commas
+    if (bytes[0] >= 0xB2 && bytes[0] <= 0xB4) return _deserializeV2(bytes);
+    return _deserializeV1(String.fromCharCode(...bytes));
+  } catch(e) { console.warn('Build decode failed:', e); return false; }
+}
+
+function _deserializeV2(bytes) {
+  const br = new BitReader(bytes);
+  const version = br.r(8); // consume marker
+  const setV  = (id, val) => { const el = document.getElementById(id); if (el) el.value = val; };
+  const setC  = (id, val) => { const el = document.getElementById(id); if (el) el.checked = !!val; };
+  const syncR = (id, did, val) => { setV(id, val); sync(id, did); };
+
+  const mode = br.r(1) === 1;
+  if (mode !== isP2W) setMode(mode);
+
+  // B4+: awakening uses 6 bits; B2 used 5
+  const awBits = version >= 0xB4 ? 6 : 5;
+  syncR('awakening','awakeVal', br.r(awBits)+1);
+  syncR('level',    'levelVal', br.r(6)+1);
+  syncR('index',    'indexVal', br.r(4));
+
+  for (let j = 0; j < 5; j++) {
+    setV(`accItem${j}`, br.r(4));
+    setV(`accRar${j}`,  br.r(3));
+    if (version >= 0xB4) setV(`accEvo${j}`, br.r(3)); // B4+: evolve grade
+  }
+  for (let j = 0; j < GACHA_ITEMS.length; j++) setV(`gacha${j}`, RARITY_KEYS[br.r(3)] || 'None');
+  for (let j = 0; j < 4; j++) syncR(`prog${j}`,`progV${j}`, br.r(7));
+
+  setV('sword1',br.r(3));   setV('enchant1',br.r(3)); setV('sword2',br.r(3));   setV('enchant2',br.r(3));
+  setV('fighter',br.r(3));  setV('fighter2',br.r(3)); setV('title',br.r(3));
+  setV('avatar',br.r(5));   updateAvatarLevels(false); setV('avatarLevel',br.r(6));
+
+  setC('gp2x',br.r(1)); setC('gpVip',br.r(1)); setC('potBig',br.r(1)); setC('potSmall',br.r(1));
+  syncR('sideQuests','sqVal', br.r(3));
+  setC('skillStart',br.r(1));
+  syncR('skillPower', 'spVal', br.r(3));
+  syncR('skillInsane','siVal', br.r(2));
+  setC('skillStartW9',br.r(1));
+  syncR('skillPowerW9','spW9Val', br.r(4));
+  syncR('trialUpg',   'tuVal',  br.r(5));
+  // B4+: tempestUpg uses 5 bits; B2/B3 used 4
+  syncR('tempestUpg', 'teuVal', version >= 0xB4 ? br.r(5) : br.r(4));
+
+  setV('achClicks',br.r(4)); setV('achStars',br.r(3));
+  setV('achEasy',  br.r(2)); setV('achMed',  br.r(2));
+  setV('achDragon',br.r(3)); setV('achTempest',br.r(3));
+
+  const unitCount = version >= 0xB4 ? 9 : 8;
+  for (let j = 0; j < unitCount; j++) {
+    const el = document.getElementById(`unitPow${j}`);
+    const v = _rf32(br);
+    if (el) el.value = v || 0;
+  }
+  if (version >= 0xB3) {
+    setC('potIII',     !!br.r(1));
+    setC('followDevs', !!br.r(1));
+  }
+  return true;
+}
+
+function _deserializeV1(raw) {
+  // Backward compatibility for old ?b= text-format links
+  const parts = raw.split(',');
+  let i = 0;
+  const nx = () => parts[i++] ?? '0';
+  const setV  = (id, val) => { const el = document.getElementById(id); if (el) el.value = val; };
+  const setC  = (id, val) => { const el = document.getElementById(id); if (el) el.checked = val === '1'; };
+  const syncR = (id, did, val) => { setV(id, val); sync(id, did); };
+
+  const mode = nx() === '1';
+  if (mode !== isP2W) setMode(mode);
+  syncR('awakening','awakeVal', nx()); syncR('level','levelVal', nx()); syncR('index','indexVal', nx());
+  for (let j = 0; j < 5; j++) { setV(`accItem${j}`, nx()); setV(`accRar${j}`, nx()); }
+  for (let j = 0; j < GACHA_ITEMS.length; j++) setV(`gacha${j}`, RARITY_KEYS[parseInt(nx())||0] ?? 'None');
+  syncR('prog0','progV0',nx()); syncR('prog1','progV1',nx()); syncR('prog2','progV2',nx()); syncR('prog3','progV3',nx());
+  setV('sword1',nx()); setV('enchant1',nx()); setV('sword2',nx()); setV('enchant2',nx());
+  setV('fighter',nx()); setV('fighter2',nx()); setV('title',nx());
+  setV('avatar',nx()); updateAvatarLevels(false); setV('avatarLevel',nx());
+  setC('gp2x',nx()); setC('gpVip',nx()); setC('potBig',nx()); setC('potSmall',nx());
+  syncR('sideQuests','sqVal',nx());
+  setC('skillStart',nx()); syncR('skillPower','spVal',nx()); syncR('skillInsane','siVal',nx());
+  setC('skillStartW9',nx()); syncR('skillPowerW9','spW9Val',nx());
+  syncR('trialUpg','tuVal',nx()); syncR('tempestUpg','teuVal',nx());
+  setV('achClicks',nx()); setV('achStars',nx()); setV('achEasy',nx()); setV('achMed',nx());
+  setV('achDragon',nx()); setV('achTempest',nx());
+  for (let j = 0; j < 8; j++) { const el = document.getElementById(`unitPow${j}`); if (el) el.value = nx() || '0'; }
+  return true;
+}
+
+function shareBuild() {
+  const url = window.location.href.split('?')[0] + '?b=' + serializeBuild();
+  navigator.clipboard.writeText(url).then(() => {
+    showToast('🔗 Link copied to clipboard!');
+    const btn = document.getElementById('shareBtn');
+    btn.classList.add('copied');
+    btn.textContent = t('btnShareCopied');
+    setTimeout(() => { btn.classList.remove('copied'); btn.textContent = t('btnShare'); }, 2500);
+  }).catch(() => { prompt('Copy this link:', url); });
+}
+
+function showToast(msg) {
+  const t = document.getElementById('share-toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+function loadFromURL() {
+  const p = new URLSearchParams(window.location.search);
+
+  // ── New compressed format ──────────────────────────────────────
+  if (p.has('b')) {
+    if (deserializeBuild(p.get('b'))) {
+      showToast('✅ Build loaded from link!');
+      calc();
+    }
+    return;
+  }
+
+  // ── Legacy format (backward compatibility) ─────────────────────
+  if (!p.has('aw')) return;
+
+  const mode = p.get('mode') === '1';
+  if (mode !== isP2W) setMode(mode);
+
+  const setRange = (id, displayId, val) => {
+    const el = document.getElementById(id);
+    if (el && val !== null) { el.value = val; sync(id, displayId); }
+  };
+  setRange('awakening','awakeVal', p.get('aw'));
+  setRange('level',    'levelVal', p.get('lvl'));
+  setRange('index',    'indexVal', p.get('idx'));
+
+  for (let i = 0; i < 5; i++) {
+    if (p.has(`ai${i}`)) document.getElementById(`accItem${i}`).value = p.get(`ai${i}`);
+    if (p.has(`ar${i}`)) document.getElementById(`accRar${i}`).value  = p.get(`ar${i}`);
+  }
+  for (let i = 0; i < GACHA_ITEMS.length; i++) {
+    if (p.has(`g${i}`)) document.getElementById(`gacha${i}`).value = p.get(`g${i}`);
+  }
+  for (let i = 0; i < 4; i++) setRange(`prog${i}`,`progV${i}`, p.get(`pr${i}`));
+
+  if (p.has('s1')) document.getElementById('sword1').value   = p.get('s1');
+  if (p.has('e1')) document.getElementById('enchant1').value = p.get('e1');
+  if (p.has('s2')) document.getElementById('sword2').value   = p.get('s2');
+  if (p.has('e2')) document.getElementById('enchant2').value = p.get('e2');
+
+  if (p.has('f1'))  document.getElementById('fighter').value  = p.get('f1');
+  if (p.has('f2'))  document.getElementById('fighter2').value = p.get('f2');
+  if (p.has('tl'))  document.getElementById('title').value    = p.get('tl');
+  if (p.has('av'))  { document.getElementById('avatar').value = p.get('av'); updateAvatarLevels(false); }
+  if (p.has('avl')) document.getElementById('avatarLevel').value = p.get('avl');
+
+  const chk = (id, key) => { if (p.has(key)) document.getElementById(id).checked = p.get(key) === '1'; };
+  chk('gp2x','gp2'); chk('gpVip','vip'); chk('potBig','pot2'); chk('potSmall','pot1');
+  setRange('sideQuests','sqVal', p.get('sq'));
+  chk('skillStart','ss');
+  setRange('skillPower', 'spVal', p.get('sp'));
+  setRange('skillInsane','siVal', p.get('si'));
+  setRange('trialUpg',  'tuVal',  p.get('tu'));
+  setRange('tempestUpg','teuVal', p.get('teu'));
+
+  ['achClicks','achStars','achEasy','achMed','achDragon','achTempest']
+    .forEach((id,i) => { if (p.has(`ac${i}`)) document.getElementById(id).value = p.get(`ac${i}`); });
+
+  for (let i = 0; i < 8; i++) {
+    const el = document.getElementById(`unitPow${i}`);
+    if (el && p.has(`u${i}`)) el.value = p.get(`u${i}`);
+  }
+
+  showToast('✅ Build loaded from link!');
+  calc();
+}
+
+// ============================================================
+//  RESET
+// ============================================================
+function resetAll() {
+  const ranges = [
+    ['awakening','awakeVal'], ['level','levelVal'], ['index','indexVal'],
+    ['sideQuests','sqVal'], ['skillPower','spVal'], ['skillInsane','siVal'],
+    ['trialUpg','tuVal'], ['tempestUpg','teuVal'],
+    ['prog0','progV0'], ['prog1','progV1'], ['prog2','progV2'], ['prog3','progV3'],
+    ['skillPowerW9','spW9Val']
+  ];
+  ranges.forEach(([rid, did]) => {
+    const el = document.getElementById(rid);
+    if (el) { el.value = el.min || 0; sync(rid, did); }
+  });
+  document.querySelectorAll('input[type="checkbox"]').forEach(el => el.checked = false);
+  document.querySelectorAll('select').forEach(el => el.selectedIndex = 0);
+  document.querySelectorAll('input[type="number"]').forEach(el => el.value = '0');
+  calc();
+}
+
+
+buildAccessories();
+buildGacha();
+buildProgressions();
+buildSwords();
+buildStats();
+buildAchievements();
+buildUnits();
+// Restore saved language
+try {
+  const savedLang = localStorage.getItem('ppc_lang');
+  if (savedLang && TRANSLATIONS[savedLang]) setLang(savedLang);
+} catch(e) {}
+renderChangelog();
+calc();
+loadFromURL();
+
+// ── Changelog toggle ──
+const CHANGELOG_SEEN_KEY = 'ppc_changelog_seen_v2';
+
+let changelogOpen = true;
+function toggleChangelog() {
+  changelogOpen = !changelogOpen;
+  document.getElementById('changelogBody').classList.toggle('open', changelogOpen);
+  document.getElementById('changelogHeader').classList.toggle('open', changelogOpen);
+  document.getElementById('changelogChevron').classList.toggle('open', changelogOpen);
+
+  // Hide NEW badge on first interaction and remember it
+  const badge = document.querySelector('.changelog-badge');
+  if (badge) {
+    badge.style.display = 'none';
+    try { localStorage.setItem(CHANGELOG_SEEN_KEY, '1'); } catch(e) {}
+  }
+}
+
+// On load: hide badge if already seen
+(function() {
+  try {
+    if (localStorage.getItem(CHANGELOG_SEEN_KEY) === '1') {
+      const badge = document.querySelector('.changelog-badge');
+      if (badge) badge.style.display = 'none';
+    }
+  } catch(e) {}
+})();
+</script>
+</body>
+</html>

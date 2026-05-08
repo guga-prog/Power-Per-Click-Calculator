@@ -1,9 +1,10 @@
-# ⚡ Power Per Click Calculator
+
+# Power Per Click Calculator 🎮
 
 > 🇧🇷 [Português](#português) | 🇺🇸 [English](#english)
 
 <div align="center">
-  <img width="800" alt="Animação" src="https://github.com/user-attachments/assets/014d24ae-c974-4216-b82a-f6370e7badc1" />
+  <img width="800" height="919" alt="Animação" src="https://github.com/user-attachments/assets/e5141260-6a8e-4d03-b019-4b16264ed4c2" />
 </div>
 
 ---

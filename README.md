@@ -27,7 +27,6 @@ In the community of a Roblox game I follow, players asked these questions consta
 The project was created to provide an interactive interface where players could simulate builds and see the result instantly, solving the simultaneous usage limitation of the original spreadsheet.
 
 ## Tech Stack
-The focus was to keep the tool light and fast:
 * **HTML5 & CSS3**
 * **JavaScript**
 
@@ -59,7 +58,6 @@ Na comunidade de um jogo do Roblox que acompanho, os jogadores faziam estas perg
 O projeto foi criado para oferecer uma interface interativa onde os jogadores pudessem simular builds e ver o resultado instantaneamente, resolvendo a limitação de uso simultâneo que existia na planilha original.
 
 ## Tecnologias
-O foco foi manter a ferramenta leve e rápida:
 * **HTML5 & CSS3**
 * **JavaScript** 
 

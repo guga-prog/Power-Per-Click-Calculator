@@ -4,7 +4,7 @@
 > 🇧🇷 [Português](#português) | 🇺🇸 [English](#english)
 
 <div align="center">
-  <img width="800" height="919" alt="Animação" src="https://github.com/user-attachments/assets/e5141260-6a8e-4d03-b019-4b16264ed4c2" />
+  <img width="800" alt="Animação" src="https://github.com/user-attachments/assets/e5141260-6a8e-4d03-b019-4b16264ed4c2"/>
 </div>
 
 ---

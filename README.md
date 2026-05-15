@@ -44,7 +44,7 @@ To get the idea live quickly for the community, I used Claude (AI) to generate t
 
 > "Como posso ficar mais forte?" ou "Qual o limite de força?" 
 
-Na comunidade de um jogo do Roblox que acompanho, os jogadores faziam estas perguntas constantemente. Para trazer as respostas, comecei por criar uma planilha de Excel para calcular os multiplicadores. Funcionava, mas era limitada e difícil de partilhar. Decidi transformar essa lógica numa ferramenta web real.
+Na comunidade de um jogo do Roblox que acompanho, os jogadores faziam estas perguntas constantemente. Para trazer as respostas, comecei por criar uma planilha de Excel para calcular os multiplicadores. Funcionava, mas era limitada e difícil de compartilhar. Decidi transformar essa lógica numa ferramenta web real.
 
 [**Acesse o site aqui**](https://powerperclickcalculator.netlify.app)
 
